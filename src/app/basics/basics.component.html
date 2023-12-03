@@ -1,0 +1,20 @@
+<h3>Basics works</h3>
+
+<h4>oneway data binding</h4> 
+{{firstname +" "+ lastname}}
+
+<h4>property binding</h4> 
+<p [innerText]="title"></p>
+
+<h4>2way binding</h4> 
+<input type="text" [(ngModel)]="name"> <br>
+<p>{{name}}</p>
+
+<h4>String Interpollation</h4>
+<p>{{welcome +" to angular"}} </p>
+<p>{{getTitle()}}</p>
+<p>100 x 10 = {{100*10}}</p>
+<p>Largest Number = {{getHigh(100,200)}}</p>
+<p style.color="{{colour}}">string interpulation is also used to apply for css property eg: is this Line</p>
+
+<h4>Property binding</h4> <span>(google it by dom element properties for more)</span>
