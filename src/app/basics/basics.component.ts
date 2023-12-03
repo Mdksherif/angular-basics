@@ -33,7 +33,8 @@ export class BasicsComponent implements OnInit {
     return Math.max (first, sec)
   }
 
-  colour = "green"
+  colour = "orange"
+
 
 
 }
