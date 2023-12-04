@@ -33,7 +33,15 @@ export class BasicsComponent implements OnInit {
     return Math.max (first, sec)
   }
 
+  // string interpulation is also used to apply for css property eg: is this Line
   colour = "orange"
+
+  // property bindings
+  position = "senior developers"
+  // button disabled
+  isDisabled = true;
+
+
 
 
 

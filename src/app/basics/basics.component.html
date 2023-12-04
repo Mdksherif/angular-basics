@@ -17,4 +17,16 @@
 <p>Largest Number = {{getHigh(100,200)}}</p>
 <p style.color="{{colour}}">string interpulation is also used to apply for css property eg: is this Line</p>
 
-<h4>Property binding</h4> <span>(google it by dom element properties for more)</span>
+<div><h4>Property binding</h4> <span>(google it by dom element properties for more)</span></div>
+<p [innerText]="position"></p>
+
+<button [disabled]="isDisabled" *ngIf="position === 'senior developer'">Submit1</button>
+<p>check why the submit1 hided</p>
+<!-- // the button will be hide if doesnot position matches with values  -->
+
+<button [disabled]="position !== 'senior developers'">Submit2</button>
+<!-- the button only disabled not hide when the condition makes false -->
+
+<h4>Event Binding</h4>
+<!-- onclick, Mouse hover, keypress -->
+
