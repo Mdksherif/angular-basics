@@ -1,4 +1,4 @@
-<h3>Basics works</h3>
+<h3>Basics component works</h3>
 
 <h4>oneway data binding</h4> 
 {{firstname +" "+ lastname}}
@@ -8,7 +8,7 @@
 
 <h4>2way binding</h4> 
 <input type="text" [(ngModel)]="name"> <br>
-<p>{{name}}</p>
+<p>Value : {{name}}</p>
 
 <h4>String Interpollation</h4>
 <p>{{welcome +" to angular"}} </p>
@@ -17,8 +17,13 @@
 <p>Largest Number = {{getHigh(100,200)}}</p>
 <p style.color="{{colour}}">string interpulation is also used to apply for css property eg: is this Line</p>
 
-<div><h4>Property binding</h4> <span>(google it by dom element properties for more)</span></div>
-<p [innerText]="position"></p>
+<div><h4>Property binding</h4> 
+    <span>(google it by dom element properties for more) </span>
+    <p [innerText]="position"></p>
+</div>
+
+<h4>Event Binding</h4>
+<!-- onclick, Mouse hover, keypress -->
 
 <button [disabled]="isDisabled" *ngIf="position === 'senior developer'">Submit1</button>
 <p>check why the submit1 hided</p>
@@ -26,7 +31,25 @@
 
 <button [disabled]="position !== 'senior developers'">Submit2</button>
 <!-- the button only disabled not hide when the condition makes false -->
+<!-- on click -->
+<p>you have clicked {{clickCount}} </p>
+<button (click)="clickMe()">click me </button>
 
-<h4>Event Binding</h4>
-<!-- onclick, Mouse hover, keypress -->
+<p>you have clicked {{count}} </p>
+
+<button (click)="clicks(); count1 = count">count</button>
+<p>copied count {{count1}} </p>
+
+<h4>Event Handling </h4>
+<!-- To handle the events by passing the value from view to component -->
+<input type="text" (input)="handleInput($event)" placeholder="type something...">
+<p>value : {{inputValue}}</p>
+<p>learn more events from mdn by google search of dom events</p>
+<app-directives></app-directives>
+
+ 
+
+
+
+
 

@@ -1,0 +1,134 @@
+<h2>Directives components works!</h2>
+<h4>Directives </h4><p>component directives, structural directives, attribute directives</p>
+<p><b>component directives </b>are component is a directive with a template. It encapsulates a specific functionality and UI, making it a reusable building block in your application.</p>
+
+<!-- // Example of a Component Directive
+@Component({
+  selector: 'app-example',
+  template: '<p>This is a component directive!</p>',
+})
+export class ExampleComponent {
+  // Component logic goes here
+ } -->
+ <p><b>Structural Directives</b> Structural directives change the structure of the DOM by adding or removing elements. They are recognizable by the * (asterisk) syntax in the template.</p>
+ 
+ <!-- *ngIf -->
+ <div *ngIf="isVisible">This element is conditionally rendered based on isVisible value is true else the div not shown</div><br>
+
+ <!-- *ngFor using array-->
+ <div class="item">
+  <h4 style="margin-top: -10px; margin-bottom: -10px;">list of items</h4>
+  <ul>
+    <li *ngFor="let item of items">{{ item }}</li>
+  </ul>
+</div>
+
+<!-- ngFor using objects -->
+<div>
+  <h4>Movies List With Details using array of objects </h4>
+  <table class="movie-table">
+    <thead>
+      <tr>
+        <th>S.no</th>
+        <th>Title</th>
+        <th>Budget</th>
+        <th>Days in Theaters</th>
+        <th>Crews</th>
+        <th>Earns</th>
+        <th>Directors</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let film of films; let odd = odd; let i = index;"  [ngClass]="{'odd-row': odd}">
+        <td>{{i+1}}</td>
+        <td>{{ film.title }}</td>
+        <td>{{ film.budget }}</td>
+        <td>{{ film.days }}</td>
+        <td>{{ film.crews.join(', ') }}</td>
+        <td>{{ film.earns }}</td>
+        <td>{{ film.directors.join(', ') }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ng switch cases  -->
+
+<div>
+  <h4>ngSwithch cases : it works by based on the selected value to get the div remaining divs are hide </h4>
+  <input type="text" [(ngModel)]="selectedMovieGenre">
+
+  <div [ngSwitch]="selectedMovieGenre">
+    <div *ngSwitchCase="'Action'">
+      <h2>Action Movies div called </h2>
+    </div> 
+
+    <div *ngSwitchCase="'Comedy'">
+      <h2>Comedy Movies called </h2>
+    </div>
+
+    <div *ngSwitchCase="'Drama'">
+      <h2>Drama Movies called </h2>
+    </div>
+
+    <div *ngSwitchDefault>
+      <h2>Other Movies called</h2>
+    </div>
+  </div>
+</div>
+
+<input type="text" [(ngModel)]="num">
+<div [ngSwitch]="num">
+  <div *ngSwitchCase="1">
+    <h2>number1 div called</h2>
+  </div>
+  <div *ngSwitchCase="2">
+    <h2>number 2 div called</h2>
+  </div>
+  <div *ngSwitchCase="3">
+    <h2>number 3 div called</h2>
+  </div>
+  <div *ngSwitchDefault>
+    <h2>other div called</h2>
+  </div>
+</div>
+
+<!-- *ngIf -->
+<h4>ngIf Examples</h4>
+<p *ngIf="true">hello iam true pls check the false stmt code</p>
+<p *ngIf="false">hello im false im not visible cause my if condition is false</p>
+<p *ngIf="!false">hello im false im not visible cause my if condition is false</p>
+<p *ngIf="!selected">hello I'm ngIf </p>
+<p *ngIf="selected && content">hello im shown cause selected and content are true </p>
+<!-- ngIf only -->
+<div class="row">
+  <label for="">CheckBox</label><input type="checkbox" [(ngModel)]="checkbox1">
+  <p *ngIf="checkbox1">checkbox is clicked</p>
+  <p *ngIf="!checkbox1">checkbox is not clicked</p>
+</div>
+<!-- ngIf with else block -->
+<!-- eg 1 -->
+<h4>ngIf with else block </h4>
+<div class="row">
+  <label for="">CheckBox</label><input type="checkbox" [(ngModel)]="checkbox2">
+  <p *ngIf="checkbox2; else elseBlock">checkbox is clicked</p>
+
+  <ng-template #elseBlock>
+    <p>else bolck displayed and checkbox 2 is false </p>
+  </ng-template>
+</div>
+
+
+<div>
+  <input type="text" [(ngModel)]="thenvalue">
+  <p *ngIf="thenvalue == 'hello'; then thenBlock else elseBlock1"></p>
+  <ng-template #thenBlock>
+    <p>hello then block called cause thenvalue is true</p>
+  </ng-template>
+  <ng-template #elseBlock1>
+    <p>hello im else block</p>
+  </ng-template>
+</div>
+
+
+

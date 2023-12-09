@@ -41,6 +41,29 @@ export class BasicsComponent implements OnInit {
   // button disabled
   isDisabled = true;
 
+  //click count  
+  clickCount = 0;
+  clickMe(){
+    this.clickCount++;
+  }
+
+  count=0;
+  count1 = 0;
+  clicks(){
+    this.count++
+  }
+
+  // event handling 
+
+  inputValue:string  = "";
+  
+  handleInput(event:any){
+    this.inputValue = event.target.value
+  }
+
+
+
+ 
 
 
 
