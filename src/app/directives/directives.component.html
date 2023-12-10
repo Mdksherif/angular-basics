@@ -53,7 +53,6 @@ export class ExampleComponent {
 </div>
 
 <!-- ng switch cases  -->
-
 <div>
   <h4>ngSwithch cases : it works by based on the selected value to get the div remaining divs are hide </h4>
   <input type="text" [(ngModel)]="selectedMovieGenre">
@@ -100,12 +99,14 @@ export class ExampleComponent {
 <p *ngIf="!false">hello im false im not visible cause my if condition is false</p>
 <p *ngIf="!selected">hello I'm ngIf </p>
 <p *ngIf="selected && content">hello im shown cause selected and content are true </p>
+
 <!-- ngIf only -->
 <div class="row">
   <label for="">CheckBox</label><input type="checkbox" [(ngModel)]="checkbox1">
   <p *ngIf="checkbox1">checkbox is clicked</p>
   <p *ngIf="!checkbox1">checkbox is not clicked</p>
 </div>
+
 <!-- ngIf with else block -->
 <!-- eg 1 -->
 <h4>ngIf with else block </h4>
@@ -118,17 +119,37 @@ export class ExampleComponent {
   </ng-template>
 </div>
 
-
 <div>
   <input type="text" [(ngModel)]="thenvalue">
   <p *ngIf="thenvalue == 'hello'; then thenBlock else elseBlock1"></p>
   <ng-template #thenBlock>
-    <p>hello then block called cause thenvalue is true</p>
+    <p>hello then block called cause thenvalue is true reason while binding default value is hello</p>
   </ng-template>
   <ng-template #elseBlock1>
-    <p>hello im else block</p>
+    <p>hello im else block reason thenvalue is not equal to hello </p>
   </ng-template>
 </div>
 
 
 
+<!-- attribute directive  -->
+<!-- ngClass -->
+<h4>Attribute directive</h4>
+
+<h4>[ngClass]</h4>
+<div [ngClass]="['testClass1','testClass2','testClass3']">hello im shown using attribute directive [ngClass] using array declarations</div>
+<div [ngClass]="{'testClass1':true,'testClass2':false,'testClass3':true}">hello im shown using attribute directive [ngClass] using object value declarations</div>
+<input type="checkbox" [(ngModel)]="enableRed"><span [ngClass]= "{paraStyleColor:enableRed}">Hello if the checkbox selected im in red color due </span>
+<br><br>
+<div>
+  <input type="checkbox" [(ngModel)]="contentColor"><label>green</label>
+  <input type="checkbox" [(ngModel)]="contentfontstyle"><label>Italic</label>
+  <input type="checkbox" [(ngModel)]="contentfontweight"><label>Bold</label>
+  <p [ngClass]="{'ColorStyle':contentColor,'fontstyle':contentfontstyle,'fontWeights':contentfontweight}">hello this is the dummy text by changing styles based on selection of checkbox</p>
+</div>
+
+<h4>[ngStyle]</h4>
+<div>
+  Color:<input type="text" [(ngModel)]="styleModelcolor" placeholder="enter any color">
+  <p [ngStyle]="{'backgroundColor':styleModelcolor}">hello im works using [ngstyle]</p>
+</div>

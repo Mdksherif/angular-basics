@@ -26,4 +26,27 @@ h4 {
   .odd-row {
     background-color: #f9f9f9;
   }
+
+  .testClass1{
+    color: orange;
+  }
+  .testClass2{
+    font-weight: bold;
+  }
+  .testClass3{
+    font-size: larger;
+  }
+  .paraStyleColor{
+    color: red;
+  }
+  .ColorStyle{
+    color: green;
+  }
+  .fontstyle{
+    font-style: italic;
+  }
+  .fontWeights{
+    font-weight: bold;
+  }
+
   
