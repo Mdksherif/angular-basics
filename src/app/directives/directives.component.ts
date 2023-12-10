@@ -48,6 +48,7 @@ export class DirectivesComponent implements OnInit {
     contentfontweight = false
     //[ngStyle]
     styleModelcolor="";
+    status = 'passed'
 
 
 }

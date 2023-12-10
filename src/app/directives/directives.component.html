@@ -153,3 +153,6 @@ export class ExampleComponent {
   Color:<input type="text" [(ngModel)]="styleModelcolor" placeholder="enter any color">
   <p [ngStyle]="{'backgroundColor':styleModelcolor}">hello im works using [ngstyle]</p>
 </div>
+<div [ngStyle]="{'color':status == 'pass'?'red':'blue'}">
+  hello world im showing in red if status is pass or blue if status is !== pass
+</div>
