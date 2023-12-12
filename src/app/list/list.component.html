@@ -1,0 +1,31 @@
+<h2>List component works</h2>
+<!-- app-your-component.component.html -->
+<div>
+  <h3>List of Car names</h3>
+    <div *ngIf="cars.length > 0; then carlist else emptydata"></div>
+    <ng-template #carlist>
+      <ul>
+        <li *ngFor="let carName of cars">{{ carName }}</li>
+      </ul>
+    </ng-template>
+  
+    <ng-template #emptydata>
+      <p>No Data Available</p>
+    </ng-template>
+</div>
+<div>
+  <h3>List of names</h3>
+  <div *ngIf="nameList.length>0; then namedata; else nonamedata"></div>
+  <ng-template #namedata>
+    <ul>
+      <li *ngFor="let names of nameList">{{names}}</li>
+    </ul>
+  </ng-template>
+  <ng-template #nonamedata>
+    <p>No Data Available</p>
+  </ng-template>
+</div>
+
+
+
+  

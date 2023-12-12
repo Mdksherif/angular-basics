@@ -156,3 +156,45 @@ export class ExampleComponent {
 <div [ngStyle]="{'color':status == 'pass'?'red':'blue'}">
   hello world im showing in red if status is pass or blue if status is !== pass
 </div>
+
+
+<!--Pipes-->
+<h4>Pipes</h4>
+<p>Without using pipes today = {{today}}</p>
+<p>Using date pipes = {{today|date}}</p>
+<p>Using date pipes using Medium argument = {{today|date:'medium'}}</p>
+<p>Using date pipes using short  = {{today|date:'short'}}</p>
+<p>Using date pipes using full date = {{today|date:'fullDate'}}</p>
+<p>Using long date pipes = {{today|date:'longDate'}}</p>
+<p>Using custom format  = {{today|date:'dd/mm/yyyy'}}</p>
+<!-- currencies pipes -->
+<h4>curreny pipes</h4>
+hello: <input type="text" [(ngModel)]="amount" placeholder="enter your amount"><br>
+<p>selected ammount is {{ amount | currency:'USD':'symbol':'1.2-2' }}</p>
+<p>selected ammount is {{ amount | currency:'INR':'symbol':'1.2-2' }}</p>
+<p>selected ammount is {{ amount | currency:'INR':true:'1.2-2'}} INR </p>
+<p>selected ammount is {{ 'INR ' + (amount | currency:'INR':true:'1.2-2') }} </p>
+<!-- percentage pipes -->
+<h4>percentage pipes</h4>
+<p>{{ 0.75 | percent:'2.2-2' }} </p>
+
+
+<!-- json pipes -->
+<h4>JSON Pipes</h4>
+<p>{{demoObject | json}}</p>
+
+<!-- lowercase pipes -->
+<h4>lower case & uppercase pipes</h4>
+<p>Using lowercase string =  {{DemoString | lowercase}}</p>
+<p>Using Uppercase string =  {{DemoString | uppercase}}</p>
+<p>Convert the first letter to uppercase =  {{DemoString | titlecase}}</p>
+
+<!-- slice pipes -->
+<h4>slice pipes</h4>
+<p>Convert Angulars slice of 0,4 => {{ 'Angular14' | slice:0:9 }} </p>
+<p>Convert Angular14 slice of 0,4 => {{ 'Angular14' | slice:0:4 }} </p>
+<p>Convert Angular14 slice of 1,4 => {{ 'Angular14' | slice:1:4 }} </p>
+<p>Convert Angular14 slice of 4,9 => {{ 'Angular14' | slice:4:9 }} </p>
+<b>Learn Async data$ | async after the http client integrated</b>
+
+

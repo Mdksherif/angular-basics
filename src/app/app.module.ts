@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { BasicsComponent } from './basics/basics.component';
 import { FormsModule } from '@angular/forms';
 import { DirectivesComponent } from './directives/directives.component';
+import { FormComponent } from './form/form.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BasicsComponent,
-    DirectivesComponent
+    DirectivesComponent,
+    FormComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,

@@ -21,7 +21,7 @@ export class DirectivesComponent implements OnInit {
     // structural directive *ngFor using Objects    
     films =[
       { title:'Harry Porter', budget:'200cr', days:'100 days', crews:["porter", "Emma watson", "Daniel RadCliffe"], earns:"300 cr", directors:["j.k rowling", "Alfonso Cuaron", "Chris colombus"]},
-      { title:'S pider Man', budget:'200cr', days:'200 days', crews:["parker", "peter", "grandma"], earns:"300 cr", directors:["sam raimi"]},
+      { title:'Spider Man', budget:'200cr', days:'200 days', crews:["parker", "peter", "grandma"], earns:"300 cr", directors:["sam raimi"]},
       { title:'Pirates of the caraibean', budget:'300cr', days:'100 days', crews:["johny deep", "keira knightely", "orlando bloom"], earns:"300 cr", directors:["Espen sandberg", "joachim Roanning"]},
       { title:'Iron Man', budget:'100cr', days:'400 days', crews:["robert Downey", "tony stark"], earns:"300 cr", directors:["jonathan kolla", "Jon Favreau"]},
       { title:'Avengers', budget:'100cr', days:'500 days', crews:["Stan lee", "Jeremy Renner", "robert Downey"], earns:"300 cr", directors:["joe, russo"]}
@@ -48,7 +48,20 @@ export class DirectivesComponent implements OnInit {
     contentfontweight = false
     //[ngStyle]
     styleModelcolor="";
-    status = 'passed'
+    status = 'pass';
+
+    // Pipes
+    today = new Date()
+    // rupees pipe
+    amount:number=this.num;
+    // json pipe 
+    demoObject = {
+      name: 'Sherif',
+      age: 25,
+      city: 'Tenkasi City'
+    };
+    DemoString: string = "This is Demo String"
+ 
 
 
 }
