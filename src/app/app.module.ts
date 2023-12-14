@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { DirectivesComponent } from './directives/directives.component';
 import { FormComponent } from './form/form.component';
 import { ListComponent } from './list/list.component';
+import { HooksComponent } from './hooks/hooks.component';
+import { HooksChildComponent } from './hooks-child/hooks-child.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { ListComponent } from './list/list.component';
     BasicsComponent,
     DirectivesComponent,
     FormComponent,
-    ListComponent
+    ListComponent,
+    HooksComponent,
+    HooksChildComponent
   ],
   imports: [
     BrowserModule,

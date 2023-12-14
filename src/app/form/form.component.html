@@ -12,8 +12,10 @@
     <input type="text" id="fullname" name= "fullname" [(ngModel)]="fullname" placeholder="Enter your full name" required>
     <button (click)="getName()">Submit</button>
 </form>
-
+<br>
 <app-list [inputcars]="cars" [inputList]="nameList"></app-list>
+
+
 <div>
     <h4>Terms and Codnitions of transfer the data from one component to another component</h4>
     <p>The above forms are created in forms component and transfered the data in to list component this can be done by two examples in above forms</p>
@@ -26,4 +28,14 @@
     <p>in List component.ts file import the <b>Input Decerator</b>,  and declare <b>@input('created input var')</b> before the variable declaration</p>
     <p>In <b>form component place the selector of the forms with like event binding [created input var]="values"</b></p>
 </div>
+<div>
+    <h4>terms and conditions of transfer the data from child to parent</h4>
+    <p>do the same but make a child component inside the parent component by using of output decorater and event emitter</p>
+    <p>steps to follow</p>
+    <p>create a form component and list component </p>
+    <p>add the list component selector in app.component.ts & place the form component at top of the list component</p>
+    <p>now understand the concept inside the list component form components are there</p>
+    <p>now create a form write a logics using event emitting its not consider clearly </p>
+</div>
+
 
