@@ -1,4 +1,26 @@
+<h2>Angular Hooks </h2>
+<ul>
+    <li>ngOnChanges</li>
+    <li>ngOninit</li>
+    <li>ngDoCheck</li>
+    <li>ngAfterContentinit</li>
+    <li>ngAfterViewInit</li>
+    <li>ngAfterViewChecked</li>
+    <li>ngOnDestroy</li>
+</ul>
+<h4>ngOnChanges</h4>
+<p> It is specifically designed to handle changes to the component's input properties.</p>
+<ul>
+    <li>normally as per create a parent to child components use of  <b>input decorator</b> </li>
+    <li>In child component add these given below for ngOnChanges</li>
+    <li> Import the OnChanges, SimpleChanges on child components</li>
+    <li> add OnChanges on export class after OnInit</li>
+    <!-- <li> add these codes > ngOnChanges(changes: SimpleChanges): void {}</li> -->
+
+</ul>
+
 <h2>Hooks component works</h2>
 <label> Enter Title : </label>
 <input type="text" [(ngModel)]="Title" placeholder="Enter the title"><br>
-<app-hooks-child [inputTitle]="Title" ></app-hooks-child>
+<!-- hooks child component called -->
+<app-hooks-child [Inputtext]="Title" ></app-hooks-child>
