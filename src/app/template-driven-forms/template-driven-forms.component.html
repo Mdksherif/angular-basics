@@ -1,0 +1,126 @@
+<h2>Template Driven Forms Component Works</h2>
+
+<div class="container">
+  <h4>Template Driven forms only input</h4>
+  <form #contactForm="ngForm" (submit)="onSubmit(contactForm)">
+    <p>
+      <label for="firstname">First Name</label>
+      <input type="text" id="firstname" name="firstname" ngModel/>
+    </p>
+    <p>
+      <label for="lastname">Last Name</label>
+      <input type="text" id="lastname" name="lastname" ngModel/>
+    </p>
+    <p>
+      <label for="email">Email</label>
+      <input type="mail" id="email" name="email" ngModel/>
+    </p>
+    <p>
+      <label for="gender">Gender : </label>
+      <input type="radio" id="gendermale" name="gender" value="male" ngModel /> Male
+      <input type="radio" id="genderfemale" name="gender" value="female" ngModel />Female
+    </p>
+    <p>
+        <label for="isMarried">Married</label>
+        <input type="checkbox" name="isMarried" id="isMarried" ngModel>
+    </p>
+    <p>
+        <label for="country">Country</label>
+        <select name="country" id="country" ngModel>
+            <option value="">Select</option>
+            <option [ngValue]="country.id" *ngFor="let country of countryList">{{country.name}}</option>
+        </select>
+    </p>
+    <div ngModelGroup="address">
+        <p>
+            <label for="city">City</label>
+            <input type="text" name="city" id="city" ngModel>
+        </p>
+        <p>
+            <label for="street">Street</label>
+            <input type="text" name="street" id="street" ngModel>
+        </p>
+        <p>
+            <label for="pincode">Pincode</label>
+            <input type="text" name="pincode" id="pincode" ngModel>
+        </p>
+
+    </div>
+    <p>
+        <button type="submit">Submit</button>
+    </p>
+
+  </form>
+</div>
+
+<br><br>
+
+<div class="container">
+    <h4>Template driven using 2 way binding and fetching default values</h4>
+    <form #detailsForm="ngForm" (submit)="onClick(detailsForm)">
+      <p>
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname" [(ngModel)]="addressdetail.firstName"/>
+      </p>
+      <p>
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname" [(ngModel)]="addressdetail.lastName"/>
+      </p>
+      <p>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" [(ngModel)]="addressdetail.email"/>
+      </p>
+      <p>
+        <label for="gender">Gender : </label>
+        <input type="radio" id="gendermale" name="gender" value="male" [(ngModel)]="addressdetail.gender" /> Male
+        <input type="radio" id="genderfemale" name="gender" value="female" [(ngModel)]="addressdetail.gender" />Female
+      </p>
+      <p>
+          <label for="isMarried">Married</label>
+          <input type="checkbox" name="isMarried" id="isMarried" [(ngModel)]="addressdetail.isMarried">
+      </p>
+      <p>
+          <label for="state">State</label>
+          <select name="state" id="state" [(ngModel)]="addressdetail.state">
+              <option value="">Select</option>
+              <option [ngValue]="state.id" *ngFor="let state of stateList">{{state.statename}}</option>
+          </select>
+      </p>
+      <div ngModelGroup="addressDetailss">
+          <p>
+              <label for="city">City</label>
+              <input type="text" name="city" id="city" [(ngModel)]="addressdetail.addressDetails.city">
+          </p>
+          <p>
+              <label for="street">Street</label>
+              <input type="text" name="street" id="street" [(ngModel)]="addressdetail.addressDetails.street">
+          </p>
+          <p>
+              <label for="pincode">Pincode</label>
+              <input type="text" name="pincode" id="pincode" [(ngModel)]="addressdetail.addressDetails.pincode">
+          </p>
+  
+      </div>
+      <p>
+          <button type="submit">Submit</button>
+      </p>
+  
+    </form>
+  </div>
+
+  <!-- exp 1 -->
+  <div class="container">
+    <h4>template forms with default values </h4>
+    <form #stafform="ngForm" (submit)="onsubmitstaff(stafform)">
+        <p>
+            <label for="staffname">Staff Name</label>
+            <input type="text" name="staffname" id="staffname" [(ngModel)]="staffDetails.staffName">
+        </p>
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+
+    </form>
+
+  </div>
+  

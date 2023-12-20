@@ -10,6 +10,7 @@ import { FormComponent } from './form/form.component';
 import { ListComponent } from './list/list.component';
 import { HooksComponent } from './hooks/hooks.component';
 import { HooksChildComponent } from './hooks-child/hooks-child.component';
+import { TemplateDrivenFormsComponent } from './template-driven-forms/template-driven-forms.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HooksChildComponent } from './hooks-child/hooks-child.component';
     FormComponent,
     ListComponent,
     HooksComponent,
-    HooksChildComponent
+    HooksChildComponent,
+    TemplateDrivenFormsComponent
   ],
   imports: [
     BrowserModule,
