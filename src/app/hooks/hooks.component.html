@@ -15,12 +15,60 @@
     <li>In child component add these given below for ngOnChanges</li>
     <li> Import the OnChanges, SimpleChanges on child components</li>
     <li> add OnChanges on export class after OnInit</li>
+    <li>its only working for string, not for Arrays and Objects</li>
     <!-- <li> add these codes > ngOnChanges(changes: SimpleChanges): void {}</li> -->
-
 </ul>
 
-<h2>Hooks component works</h2>
+
+
+<h4>ngOnInit</h4>
+<ul>
+    <li>Always it will called after ngOnchanges</li>
+    <li>in child components add these given below for ngOninit</li>
+    <li>use like onChanges Import ngOninit and add interface using comma(,) </li>
+    <li>write a function ngOninit "ngOninit()"</li>
+    <li><b>impartant!! </b>it is mostly used for runs a data before a component should be created</li>  
+</ul>
+<h4>ngDoCheck</h4>
+<ul>
+    <li>it is used for check the changes for all types including strings, arrays, objects</li>
+    <li>ngOnChanges is only for get changes of strings but ngDoCheck is for all to check the changes</li>
+</ul>
+<h4>ngOnDestroy</h4>
+<ul>
+    <li>it is used to destroy the component (which mean hide the entire component) </li>
+</ul>
+
+<h2>Hooks component works </h2>
+<h4>For ngOnChanges & ngOnInit</h4>
 <label> Enter Title : </label>
-<input type="text" [(ngModel)]="Title" placeholder="Enter the title"><br>
+<input type="text" [(ngModel)]="Title" id="Title" name="Title" placeholder="Enter the title"><br>
+<br>
+<label>Enter key : </label>
+<input type="text"[(ngModel)]="keyid" id="keyid" name="keyid" palaceholder="enter any key">
+
+<h4>For ngDoCheck </h4>
+<label>Enter content : </label>
+<input type="text" [(ngModel)]="content" name="content" placeholder="Enter content">
+<button (click)="getContent()">Submit</button>
+
+<h4>For *ngIf enter any value to show the div </h4>
+<label>Enter value : </label>
+<input type="text" [(ngModel)]="value" name="value" placeholder="Enter value">
+<button (click)="getValue()">Submit</button>
+
+<div>
+    <h4>For ngDestroy </h4>
+    <p *ngIf="!disableHooksChild" > <b>Click Disable to hide Child hooks component</b></p>
+    <p *ngIf="disableHooksChild" > <b>Remove the heading tick to View the Child hooks component</b></p>
+    <input type="checkbox" [(ngModel)]="disableHooksChild">Disable heading    
+   
+</div>
+
+
+
 <!-- hooks child component called -->
-<app-hooks-child [Inputtext]="Title" ></app-hooks-child>
+<app-hooks-child *ngIf="!disableHooksChild" [Inputtext]="Title" [InputKeyId]="keyid" [InputContent]="contentList" [Inputvalue]="valueList"></app-hooks-child>
+
+
+
