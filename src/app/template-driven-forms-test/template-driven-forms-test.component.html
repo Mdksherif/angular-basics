@@ -1,0 +1,51 @@
+<h2>test template driven forms components works</h2>
+
+<div class="container">
+    <h4>Test Template Driven component works</h4>
+    <form #productForm="ngForm" (submit)="onSubmitProduct(productForm)" >
+        <p>
+            <label for="productname">Product Name</label>
+            <input type="text" name="productname" id="productname" ngModel>
+        </p>
+        <p>
+            <label for="productfeature">Product Feature</label>
+            <input type="text" name="productfeature" id="productfeature" ngModel>
+        </p>
+        <p>
+            <label for="productprice">Product Price</label>
+            <input type="text" name="productprice" id="productprice" ngModel>
+        </p>
+        <p>
+            <label for="category">Product Category</label>
+            <select name="category" id="category" ngModel>
+                <option value="">select</option>
+                <option [ngValue]="category.id" *ngFor="let category of categoryList">{{category.CategoryName}}</option>
+            </select>
+            
+        </p>
+        
+        <p>
+            <label for="productquantity">Product Quantity</label>
+            <input type="text" name="productquantity" id="productquantity" ngModel>
+        </p>
+
+        <div ngModelGroup="addressForm">
+            <p>
+                <label for="city">City</label>
+                <input type="text" name="city" id="city" ngModel>
+            </p>
+            <p>
+                <label for="street">Street</label>
+                <input type="text" name="street" id="street" ngModel>
+            </p>
+            <p>
+                <label for="pincode">Pincode</label>
+                <input type="text" name="pincode" id="pincode" ngModel>
+            </p>
+        </div>
+        
+        <p><button type="submit">Submit </button></p>
+        
+
+    </form>
+</div>

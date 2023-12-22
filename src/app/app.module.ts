@@ -11,6 +11,7 @@ import { ListComponent } from './list/list.component';
 import { HooksComponent } from './hooks/hooks.component';
 import { HooksChildComponent } from './hooks-child/hooks-child.component';
 import { TemplateDrivenFormsComponent } from './template-driven-forms/template-driven-forms.component';
+import { TemplateDrivenFormsTestComponent } from './template-driven-forms-test/template-driven-forms-test.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TemplateDrivenFormsComponent } from './template-driven-forms/template-d
     ListComponent,
     HooksComponent,
     HooksChildComponent,
-    TemplateDrivenFormsComponent
+    TemplateDrivenFormsComponent,
+    TemplateDrivenFormsTestComponent
   ],
   imports: [
     BrowserModule,
