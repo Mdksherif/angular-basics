@@ -1,0 +1,75 @@
+<h2>Reactive forms components working </h2>
+<h4>Reactive forms Module </h4>
+<p><b>Notes: </b> import <b>formsModule</b> in app module for template driven forms</p>
+<p>As like import <b>ReactiveFormsModule</b> in app Module for Reactive Forms</p>
+
+<div class="container">
+    <form [formGroup]="contactForm" (submit)="onSubmit()"> 
+        <p>
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" name="firstname" formControlName="firstName"> 
+            <!-- formControlName='firstName' is match with typescript form name  -->
+        </p>
+        <p>
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" name="lastname"  formControlName="lastName">
+        </p>
+        <p>
+            <label for="age">age</label>
+            <input type="text" id="age" name="age" formControlName="age" required>
+        </p>
+        <p>
+            <label for="gender">Gender : </label>
+            <input type="radio" id="gendermale" name="gender" value="male"   formControlName="gender"/> Male
+            <input type="radio" id="genderfemale" name="gender" value="female"  formControlName="gender"/>Female
+          </p>
+        <p>
+            <label for="qualification">Qualification</label>
+            <input type="text" id="qualification" name="qualification"  formControlName="qualification">
+        </p>
+        <p>
+            <label for="isMarried">Married</label>
+            <input type="checkbox" id="isMarried" name="isMarried"  formControlName="isMarried">
+        </p>
+        <p>
+            <label for="profession">Profession</label>
+            <input type="text" id="profession" name="profession"  formControlName="profession">
+        </p>
+        <p>
+            <label for="experience">Experience</label>
+            <input type="text" id="experience" name="experience"  formControlName="experience">
+        </p>
+        <p>
+            <label for="country"> Country</label>
+            <select name="country" id="country"  formControlName="country">
+                <option value="1">India</option>
+                <option value="2">USA</option>
+                <option value="3">UK</option>
+                <option value="4">UAE</option>
+                <option value="5">Australia</option>
+                <option value="6">China</option>
+                <option value="7">Denmark</option>
+            </select>
+        </p>
+
+        <div formGroupName="address">
+            <p>
+                <label for="city">City</label>
+                <input type="text" name="city" id="city" formControlName="city">
+            </p>
+            <p>
+                <label for="state">state</label>
+                <input type="text" name="street" id="state" formControlName="state">
+            </p>
+            <p>
+                <label for="pincode">Pincode</label>
+                <input type="text" name="pincode" id="pincode" formControlName="pincode">
+            </p>
+    
+        </div>
+
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+</div>

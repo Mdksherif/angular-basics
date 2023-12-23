@@ -1,6 +1,6 @@
 import { state } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgControl, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-template-driven-forms',
@@ -16,10 +16,16 @@ export class TemplateDrivenFormsComponent implements OnInit {
     new Country('4','Germany')
   ]
 
+  
+
   onSubmit(forms:NgForm) {
+    console.log("contact form data", forms);
     console.log("contact form data", forms.value);
   }
 
+  // onSubmit( forms: NgControl ){
+  //   console.log("forms", forms)
+  // }
 // followed for state structure
 
 

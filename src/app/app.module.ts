@@ -4,14 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BasicsComponent } from './basics/basics.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DirectivesComponent } from './directives/directives.component';
 import { FormComponent } from './form/form.component';
-import { ListComponent } from './list/list.component';
+import { ListComponent } from './formlist/list.component';
 import { HooksComponent } from './hooks/hooks.component';
 import { HooksChildComponent } from './hooks-child/hooks-child.component';
 import { TemplateDrivenFormsComponent } from './template-driven-forms/template-driven-forms.component';
 import { TemplateDrivenFormsTestComponent } from './template-driven-forms-test/template-driven-forms-test.component';
+import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +24,14 @@ import { TemplateDrivenFormsTestComponent } from './template-driven-forms-test/t
     HooksComponent,
     HooksChildComponent,
     TemplateDrivenFormsComponent,
-    TemplateDrivenFormsTestComponent
+    TemplateDrivenFormsTestComponent,
+    ReactiveFormsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
