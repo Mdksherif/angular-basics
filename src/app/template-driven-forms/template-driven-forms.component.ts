@@ -16,16 +16,11 @@ export class TemplateDrivenFormsComponent implements OnInit {
     new Country('4','Germany')
   ]
 
-  
-
   onSubmit(forms:NgForm) {
     console.log("contact form data", forms);
     console.log("contact form data", forms.value);
   }
 
-  // onSubmit( forms: NgControl ){
-  //   console.log("forms", forms)
-  // }
 // followed for state structure
 
 
