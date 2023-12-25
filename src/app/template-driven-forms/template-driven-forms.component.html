@@ -10,6 +10,7 @@
     </p>
   
     <p>
+      <!-- in this field is requires and min length is also required as 5 digit -->
       <label for="lastname">Last Name *</label>
       <input type="text" id="lastname" name="lastname" ngModel #lastNameInput="ngModel" required minlength="5" />
       <span class="text-danger" *ngIf="lastNameInput.hasError('required') && (lastNameInput.dirty || lastNameInput.touched)">
@@ -21,6 +22,7 @@
     </p>
     
     <p>
+       <!-- create a pattern whatever you want in this pattern validates mail format -->
       <label for="email">Email</label>
       <input type="email" id="email" name="email" ngModel #emailInput="ngModel" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
       <span class="text-danger" *ngIf="emailInput.hasError('pattern') && (emailInput.dirty)">
