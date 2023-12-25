@@ -5,83 +5,118 @@
   <form #contactForm="ngForm" (submit)="onSubmit(contactForm)">
     <p>
       <label for="firstname">First Name *</label>
-      <input type="text" id="firstname" name="firstname" ngModel required #firstnameInput="ngModel"/>
-      <span class="text-danger" *ngIf="!firstnameInput.valid && (firstnameInput.dirty || firstnameInput.touched)"> Enter Your First Name</span>
+      <input type="text" id="firstname" name="firstname" ngModel  #firstnameInput="ngModel" minlength="5" maxlength="15" required/>
+      <span class="text-danger" *ngIf="!firstnameInput.valid && (firstnameInput.dirty || firstnameInput.touched)">
+        <span class="text-danger" *ngIf="firstnameInput.hasError('required') && (firstnameInput.dirty || firstnameInput.touched)">
+          First Name is Required
+        </span>
+        <span class="text-danger" *ngIf="firstnameInput.hasError('minlength') && (firstnameInput.dirty || firstnameInput.touched)">
+          First Name must be at least 5 characters
+        </span>
+        <span class="text-danger" *ngIf="firstnameInput.hasError('maxlength') && (firstnameInput.dirty || firstnameInput.touched)">
+          First Name Not More Than 15 characters
+        </span>
+      </span>
     </p>
   
     <p>
-      <!-- in this field is requires and min length is also required as 5 digit -->
       <label for="lastname">Last Name *</label>
-      <input type="text" id="lastname" name="lastname" ngModel #lastNameInput="ngModel" required minlength="5" />
+      <input type="text" id="lastname" name="lastname" ngModel #lastNameInput="ngModel" minlength="5" maxlength="15" required />
       <span class="text-danger" *ngIf="lastNameInput.hasError('required') && (lastNameInput.dirty || lastNameInput.touched)">
-        Last Name is required 
+        Last Name Is Required 
       </span>
       <span class="text-danger" *ngIf="lastNameInput.hasError('minlength') && (lastNameInput.dirty || lastNameInput.touched)">
-        Last Name must be at least 5 characters
+        Last Name Must Be At Least 5 Characters
+      </span>
+      <span class="text-danger" *ngIf="lastNameInput.hasError('maxlength') && (lastNameInput.dirty || lastNameInput.touched)">
+        Last Name Is Not More Than 15 characters
       </span>
     </p>
-    
+  
     <p>
-       <!-- create a pattern whatever you want in this pattern validates mail format -->
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" ngModel #emailInput="ngModel" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
-      <span class="text-danger" *ngIf="emailInput.hasError('pattern') && (emailInput.dirty)">
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" ngModel #emailInput="ngModel" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+      <span class="text-danger" *ngIf="emailInput.hasError('pattern') && (emailInput.dirty || emailInput.touched)">
         Enter a valid email address
       </span>
+      <span class="text-danger" *ngIf="emailInput.hasError('required') && (emailInput.dirty || emailInput.touched)">
+        Email is required 
+      </span>
     </p>
-    
-    
-    
-  
+
     <p>
-      <label for="gender">Gender : </label>
-      <input type="radio" id="gendermale" name="gender" value="male" ngModel /> Male
-      <input type="radio" id="genderfemale" name="gender" value="female" ngModel />Female
-    </p>
-  
-    <p>
-      <label for="isMarried">Married</label>
-      <input type="checkbox" name="isMarried" id="isMarried" ngModel>
+      <label for="gender">Gender * : </label>
+      <input type="radio" id="gendermale" name="gender" value="male" ngModel #genderInput="ngModel" required/> Male
+      <input type="radio" id="genderfemale" name="gender" value="female" ngModel #genderInput="ngModel" required />Female
+      <span class="text-danger" *ngIf="genderInput.hasError('required') && (genderInput.dirty || genderInput.touched)">
+        Email is required
+      </span>
     </p>
   
     <p>
-      <label for="country">Country</label>
-      <select name="country" id="country" ngModel>
+      <label for="isMarried">Married *</label>
+      <input type="checkbox" name="isMarried" id="isMarried" ngModel #isMarriedInput="ngModel" required>
+      <span class="text-danger" *ngIf="isMarriedInput.hasError('required') && (isMarriedInput.dirty || isMarriedInput.touched)">
+        Married status is requitred
+      </span>
+    </p>
+  
+    <p>
+      <label for="country">Country *</label>
+      <select name="country" id="country" ngModel #countryInput="ngModel" required>
         <option value="">Select</option>
         <option [ngValue]="country.id" *ngFor="let country of countryList">{{country.name}}</option>
       </select>
+      <span class="text-danger" *ngIf="countryInput.hasError('required') && (countryInput.dirty || countryInput.touched)">
+        Country is required 
+      </span>
     </p>
-  
     <div ngModelGroup="address">
       <p>
         <label for="city">City *</label>
-        <input type="text" name="city" id="city" ngModel required>
+        <input type="text" name="city" id="city" ngModel #cityInput="ngModel" maxlength="10" minlength="5" required>
+        <span class="text-danger" *ngIf="cityInput.hasError('required') && (cityInput.dirty || cityInput.touched)">
+          City is required
+        </span>
+        <span class="text-danger" *ngIf="cityInput.hasError('maxlength') && (cityInput.dirty || cityInput.touched)">
+          City Max Length Reached
+        </span>
+        <span class="text-danger" *ngIf="cityInput.hasError('minlength') && (cityInput.dirty || cityInput.touched)">
+          City Min Length is required as 4 characters
+        </span>
       </p>
       <p>
         <label for="street">Street *</label>
-        <input type="text" name="street" id="street" ngModel required>
+        <input type="text" name="street" id="street" ngModel #streetInput="ngModel" required>
+        <span class="text-danger" *ngIf="streetInput.hasError('required') && (streetInput.dirty || streetInput.touched)">
+          Street is required
+        </span>
+        <span class="text-danger" *ngIf="streetInput.hasError('maxlength') && (streetInput.dirty || streetInput.touched)">
+          Street Max Length Reached
+        </span>
+        <span class="text-danger" *ngIf="streetInput.hasError('minlength') && (streetInput.dirty || streetInput.touched)">
+          Street Min Length is required as 4 characters
+        </span>
       </p>
       <p>
         <label for="pincode">Pincode *</label>
-        <input type="text" name="pincode" id="pincode" ngModel required pattern="[0-9]{6}" #pincodeInput="ngModel">
+        <input type="text" name="pincode" id="pincode" ngModel  pattern="[0-9]{6}" #pincodeInput="ngModel" required>
         <span class="text-danger" *ngIf="pincodeInput.hasError('required') && (pincodeInput.dirty || pincodeInput.touched)">
           Pincode is required
         </span>
         <span class="text-danger" *ngIf="pincodeInput.hasError('pattern') && (pincodeInput.dirty || pincodeInput.touched)">
           Pincode must be a 6-digit number
         </span>
-      </p>
-      
-      
+      </p>      
     </div>
   
     <p>
       <button type="submit" [disabled]="!contactForm.form.valid">Submit</button>
     </p>
   </form>
-  <p><b>Notes : </b> First name, lastname and address group fields like city street & pincode are Required Fields 
-    if any field is missed the submit button is disabled<br>last Name has validate min values and required <br>Email field is not required but it verifies the format of input as mail </p>
-     
+
+  <p><b>Notes : </b> All Validations are Applied in the Above Forms like  <b>[Required,Min length and Max length]</b></p>
+
 </div>
 
 <br><br>
