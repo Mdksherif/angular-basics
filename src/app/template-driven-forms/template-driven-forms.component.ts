@@ -18,9 +18,9 @@ export class TemplateDrivenFormsComponent implements OnInit {
 
   
 
-  onSubmit(forms:NgForm) {
-    console.log("contact form data", forms);
-    console.log("contact form data", forms.value);
+  onSubmit(contactForm:NgForm) {
+    console.log("contact form data", contactForm);
+    console.log("contact form data", contactForm.value);
   }
 
   // onSubmit( forms: NgControl ){
@@ -122,7 +122,7 @@ class Details {
   email !:string;
   gender !:string;
   isMarried !:boolean;
-  state !:string
+  state !:string;
   addressDetails !: {
     city:string;
     street:string;
