@@ -6,35 +6,70 @@
 <div class="container">
     <form [formGroup]="contactForm" (submit)="onSubmit()"> 
         <p>
-            <label for="firstname">First Name</label>
-            <input type="text" id="firstname" name="firstname" formControlName="firstName"> 
+            <label for="firstname">First Name *</label>
+            <input type="text" id="firstname" name="firstname" formControlName="firstName" (keypress)="handleKeyPressAlp($event)"> 
+            <span class="text-danger" *ngIf="contactForm.controls.firstName.hasError('required')&& (contactForm.controls.firstName.dirty || contactForm.controls.firstName.touched)">
+                First Name is Invalid
+            </span>
             <!-- formControlName='firstName' is match with typescript form name  -->
+            <span class="text-danger" *ngIf="contactForm.controls.firstName.hasError('maxlength') && (contactForm.controls.firstName.touched || contactForm.controls.firstName.dirty)">
+                First Name should not exceed 15 characters
+            </span>
         </p>
         <p>
-            <label for="lastname">Last Name</label>
-            <input type="text" id="lastname" name="lastname"  formControlName="lastName">
+            <label for="lastname">Last Name *</label>
+            <input type="text" id="lastname" name="lastname" formControlName="lastName" (keypress)="handleKeyPressAlp($event)">
+            <span class="text-danger" *ngIf="contactForm.controls.lastName.hasError('required') && (contactForm.controls.lastName.touched || contactForm.controls.lastName.dirty)">
+              Last Name is required
+            </span>
+            <span class="text-danger" *ngIf="contactForm.controls.lastName.hasError('maxlength') && (contactForm.controls.lastName.touched || contactForm.controls.lastName.dirty)">
+              Last Name should not exceed 10 characters
+            </span>
+            <span class="text-danger" *ngIf="contactForm.controls.lastName.hasError('pattern') && (contactForm.controls.lastName.touched || contactForm.controls.lastName.dirty)">
+              Last Name should contain only alphabets
+            </span>
+          </p>
+          <p style="color: blue;"><b>Notes: </b>it bloks num keys but it throws an error exceed more than 10 charecters </p>
+          
+          
+          
+          <p>
+            <label for="age">Age *</label>
+            <input type="text" id="age" name="age" formControlName="age"  (keypress)="handleKeyPressNum($event)">
+           
+            <span class="text-danger" *ngIf="contactForm.controls.age.hasError('pattern') && (contactForm.controls.age.touched || contactForm.controls.age.dirty)">
+              Please enter a valid two-digit number
+            </span>
+            <span class="text-danger" *ngIf="contactForm.controls.age.hasError('required') && (contactForm.controls.age.touched || contactForm.controls.age.dirty)">
+              Age is required
+            </span>
+         </p>
+         <p style="color: blue;"><b>Notes: </b>it accept only numeric keys it <b style="color: red;">blocks</b> the alphabets keys</p>
+
+         <p>
+            <label for="profession">Profession</label>
+            <input type="text" id="profession" name="profession"  formControlName="profession" (keypress)="handleKeyPressAlp10($event)" >
         </p>
-        <p>
-            <label for="age">age</label>
-            <input type="text" id="age" name="age" formControlName="age" required>
-        </p>
+        <p style="color: blue;"><b>Notes: </b>it accept only numeric keys it <b style="color: red;">blocks</b>  the alphabets and 10 keys only and it blocks more than 10 keys </p>
+          
         <p>
             <label for="gender">Gender : </label>
             <input type="radio" id="gendermale" name="gender" value="male"   formControlName="gender"/> Male
             <input type="radio" id="genderfemale" name="gender" value="female"  formControlName="gender"/>Female
+            <span class="text-danger" *ngIf="contactForm.controls.gender.hasError('required') && (contactForm.controls.gender.touched || contactForm.controls.gender.dirty)">
+                Age is required
+              </span>
           </p>
         <p>
             <label for="qualification">Qualification</label>
             <input type="text" id="qualification" name="qualification"  formControlName="qualification">
         </p>
+        <p style="color: blue;"><b>Notes : </b>qualification is <b style="color: red;">disabled</b> to edit</p>
         <p>
             <label for="isMarried">Married</label>
             <input type="checkbox" id="isMarried" name="isMarried"  formControlName="isMarried">
         </p>
-        <p>
-            <label for="profession">Profession</label>
-            <input type="text" id="profession" name="profession"  formControlName="profession">
-        </p>
+      
         <p>
             <label for="experience">Experience</label>
             <input type="text" id="experience" name="experience"  formControlName="experience">
@@ -42,6 +77,7 @@
         <p>
             <label for="country"> Country</label>
             <select name="country" id="country"  formControlName="country">
+                <option value="">Select</option>
                 <option value="1">India</option>
                 <option value="2">USA</option>
                 <option value="3">UK</option>
@@ -50,12 +86,19 @@
                 <option value="6">China</option>
                 <option value="7">Denmark</option>
             </select>
+            <span class="text-danger" *ngIf="contactForm.controls.country.hasError('required') && (contactForm.controls.country.touched || contactForm.controls.country.dirty)">
+                Country is required
+            </span>
         </p>
 
         <div formGroupName="address">
             <p>
                 <label for="city">City</label>
                 <input type="text" name="city" id="city" formControlName="city">
+                <span class="text-danger" *ngIf="contactForm.get('address.city')?.hasError('required') && (contactForm.get('address.city')?.touched || contactForm.get('address.city')?.dirty)">
+                    City is required
+                </span>
+                  
             </p>
             <p>
                 <label for="state">state</label>
@@ -63,13 +106,37 @@
             </p>
             <p>
                 <label for="pincode">Pincode</label>
-                <input type="text" name="pincode" id="pincode" formControlName="pincode">
+                <input type="text" name="pincode" id="pincode" formControlName="pincode" (keypress)="pincodeValid($event)">
             </p>
     
         </div>
 
         <p>
-            <button type="submit">Submit</button>
+            <button type="submit" [disabled]="!contactForm.valid">Submit</button>
         </p>
     </form>
 </div>
+
+  <!-- Assuming your data is stored in a variable called 'formData' in your component -->
+
+<div *ngIf="contactFormData">
+    <h2>User Information</h2>
+    
+    <p><strong>First Name:</strong> {{ contactFormData.firstName }}</p>
+    <p><strong>Last Name:</strong> {{ contactFormData.lastName }}</p>
+    <p><strong>Age:</strong> {{ contactFormData.age }}</p>
+    <p><strong>Gender:</strong> {{ contactFormData.gender }}</p>
+    <p><strong>Marital Status:</strong> {{ contactFormData.isMarried ? 'Married' : 'Single' }}</p>
+    <p><strong>Profession:</strong> {{ contactFormData.profession }}</p>
+    <p><strong>Experience:</strong> {{ contactFormData.experience }}</p>
+    <p><strong>Country:</strong> {{ getCountryName(contactFormData.country) }}</p>
+    <h3>Address:</h3>
+    <p><strong>City:</strong> {{ contactFormData.address.city }}</p>
+    <p><strong>State:</strong> {{ contactFormData.address.state }}</p>
+    <p><strong>Pincode:</strong> {{ contactFormData.address.pincode }}</p>
+  </div>
+  
+
+  
+
+  

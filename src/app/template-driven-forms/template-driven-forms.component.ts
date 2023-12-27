@@ -16,9 +16,11 @@ export class TemplateDrivenFormsComponent implements OnInit {
     new Country('4','Germany')
   ]
 
-  onSubmit(forms:NgForm) {
-    console.log("contact form data", forms);
-    console.log("contact form data", forms.value);
+  
+
+  onSubmit(contactForm:NgForm) {
+    console.log("contact form data", contactForm);
+    console.log("contact form data", contactForm.value);
   }
 
 // followed for state structure
@@ -117,7 +119,7 @@ class Details {
   email !:string;
   gender !:string;
   isMarried !:boolean;
-  state !:string
+  state !:string;
   addressDetails !: {
     city:string;
     street:string;
