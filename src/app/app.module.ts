@@ -13,6 +13,7 @@ import { HooksChildComponent } from './hooks-child/hooks-child.component';
 import { TemplateDrivenFormsComponent } from './template-driven-forms/template-driven-forms.component';
 import { TemplateDrivenFormsTestComponent } from './template-driven-forms-test/template-driven-forms-test.component';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
+import { ReactiveFormsTestComponent } from './reactive-forms-test/reactive-forms-test.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.componen
     HooksChildComponent,
     TemplateDrivenFormsComponent,
     TemplateDrivenFormsTestComponent,
-    ReactiveFormsComponent
+    ReactiveFormsComponent,
+    ReactiveFormsTestComponent
   ],
   imports: [
     BrowserModule,

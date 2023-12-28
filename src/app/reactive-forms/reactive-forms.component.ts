@@ -23,7 +23,7 @@ export class ReactiveFormsComponent implements OnInit {
 
     isMarried: new FormControl(),
     profession: new FormControl(),
-    experience: new FormControl(),
+    experience: new FormControl('',[Validators.required]),
     country: new FormControl('',[Validators.required]),
     address: new FormGroup({
       city: new FormControl('',[Validators.required]),
@@ -83,12 +83,15 @@ export class ReactiveFormsComponent implements OnInit {
       default: return '';
     }
   }
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   contactFormData:any
+
   onSubmit(){
      this.contactFormData = this.contactForm.value;
     console.log("reactive forms =>", this.contactFormData)
@@ -97,7 +100,9 @@ export class ReactiveFormsComponent implements OnInit {
   }
 
 
-
+  get experience(){
+    return this.contactForm.get('experience')
+  }
 
   
 
