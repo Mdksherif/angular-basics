@@ -1,0 +1,127 @@
+<h2>Http module component works</h2>
+<br>
+<div>
+    <h4>Steps to execute http modules  </h4>
+    <ul>
+        <li>import http client module in app.module </li>
+        <li>import HttpClient in your http service needed components</li>
+        <li>set constructor as http and type as HttpClient as private or public</li>
+        <li>write a function </li>
+        <li>call the api on ng on int</li>
+    </ul>
+</div>
+
+<h4><b>Http Get Method</b> <br>Get user list from fake placeholder api </h4>
+
+<div>
+
+    <div>
+        <h3>User List</h3>
+        <ul>
+            <li style="color: blue;" *ngFor="let user of users">
+                 {{ user.name }} (ID: {{ user.id }})
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h1>User Information</h1>
+        <!-- Input to get user ID from the user -->
+        <label for="userId">Enter User ID:</label>
+        <input type="number" id="userId" [(ngModel)]="selectedUserId" placeholder="Enter user id "/>
+        <button (click)="getUserById()">Get User</button>    
+    </div>
+    <br>
+    
+    <!-- Display user information -->
+    <div *ngIf="selectedUser">
+            <h3>User Details</h3>
+            <p><strong>ID:</strong> {{ selectedUser.id }}</p>
+            <p><strong>Name:</strong> {{ selectedUser.name }}</p>
+            <p><strong>username:</strong> {{ selectedUser.username }}</p>
+            <p><strong>Email:</strong> {{ selectedUser.email }}</p>
+            <p><strong>Address:</strong> {{ selectedUser.address.street +" "+selectedUser.address.suite +" "+selectedUser.address.city +" "+selectedUser.address.zipcode}}</p>
+            <p><strong>Geo Location:</strong> {{selectedUser.address.geo.lat+" "+ selectedUser.address.geo.lng}}</p>
+            <p><strong>phone:</strong> {{ selectedUser.phone }}</p>
+            <p><strong>site:</strong> {{ selectedUser.website }}</p>
+            <p><strong>company name:</strong> {{ selectedUser.company.name }}</p>
+    </div>
+    
+    
+
+    
+</div>
+
+<div>
+    <div>
+        <h4>Get Todo list with details </h4>
+        <ul>
+            <li *ngFor="let todo of todoList">{{todo.id}} (Todo: {{todo.title}})</li>
+        </ul>
+    </div>
+    <div>
+        <label for="userid">Enter Id :</label>
+        <input type="number" name="id" id="id" [(ngModel)]="todoUserId" placeholder="enter id to show id based todo">
+        <button (click)="getTodoById()">Get Todo By Id</button>
+    </div>
+    
+</div>
+
+<div *ngIf="todoSelectedUser">
+    <h4>Selected Id Data.</h4>
+    <p><strong> Id : </strong>{{todoSelectedUser.id}}</p>
+    <p><strong>User Id  : </strong>{{todoSelectedUser.id}}</p>
+    <p><strong>Title  : </strong>{{todoSelectedUser.title}}</p>
+    <p><strong>Status  : </strong>{{todoSelectedUser.completed}}</p>
+</div>
+
+
+
+<div>
+    <div>
+        <h1>Todos Information</h1>
+        <label for="userIdToDisplay">Enter User ID:</label>
+        <input type="number" id="userIdToDisplay" [(ngModel)]="userIdToDisplay" placeholder="Enter user id" name="userIdToDisplay" />
+        <button (click)="getTodosForUser(userIdToDisplay)">Display User Todos</button>
+    </div>
+    
+    <!-- Display user todos -->
+    <div *ngIf="selectedTodoData">
+      <h3>User Todos</h3>
+      <ul>
+        <li *ngFor="let todo of selectedTodoData">
+          {{ todo.title }} (Status: {{todo.completed}})
+        </li>
+      </ul>
+    </div>
+</div>
+
+
+
+<div>
+    <div>
+        <h1>Todos Information with Id and Status</h1>
+        <label for="userIdToFilter">Enter User ID:</label>
+        <input type="number" id="userIdToFilter" [(ngModel)]="userIdToFilter" placeholder="Enter user id" name="userIdToFilter" />
+        
+        <label for="statusToDisplay">Status:</label>
+        <select id="statusToDisplay" [(ngModel)]="statusToDisplay" name="statusToDisplay">
+          <option [ngValue]="undefined">All</option>
+          <option [ngValue]="true">Completed</option>
+          <option [ngValue]="false">Not Completed</option>
+        </select>
+         
+        <button (click)="getTodosForUserAndStatus()">Display User Todos</button>
+    </div>
+    
+    <div *ngIf="showTodos">
+        <h3>User Todos</h3>
+        <ul>
+        <li *ngFor="let todo of UidStatusData">
+          {{ todo.title }} ( id :{{ todo.id }})
+        </li>
+        </ul>
+    </div>
+</div>
+  
+  
+  
