@@ -65,12 +65,12 @@ export class HttpSectionComponent implements OnInit {
 
   // get todo by id 
 
-  todoUserId:any;
-  todoSelectedUser :any
+  dataid:any;
+  selectedData :any
   getTodoById(){
-    if(this.todoUserId){
-      this.todoSelectedUser = this.todoList.find( todo => todo.id === this.todoUserId )
-      console.log("selected user = > ", this.todoSelectedUser)
+    if(this.dataid){
+      this.selectedData = this.todoList.find( todo => todo.id === this.dataid )
+      console.log("selected user = > ", this.selectedData)
     }
   }
 

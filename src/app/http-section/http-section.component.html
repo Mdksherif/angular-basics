@@ -11,10 +11,10 @@
     </ul>
 </div>
 
-<h4><b>Http Get Method</b> <br>Get user list from fake placeholder api </h4>
+
 
 <div>
-
+    <h4><b>Http Get Method</b> <br>Get user list from fake placeholder api </h4>
     <div>
         <h3>User List</h3>
         <ul>
@@ -45,10 +45,6 @@
             <p><strong>site:</strong> {{ selectedUser.website }}</p>
             <p><strong>company name:</strong> {{ selectedUser.company.name }}</p>
     </div>
-    
-    
-
-    
 </div>
 
 <div>
@@ -59,20 +55,22 @@
         </ul>
     </div>
     <div>
-        <label for="userid">Enter Id :</label>
-        <input type="number" name="id" id="id" [(ngModel)]="todoUserId" placeholder="enter id to show id based todo">
+        <h4>Get Data By User Id</h4>
+        <label for="dataid">Enter Id :</label>
+        <input type="number" name="dataid" id="dataid" [(ngModel)]="dataid" placeholder="enter id to show id based todo">
         <button (click)="getTodoById()">Get Todo By Id</button>
+    </div>
+    <div *ngIf="selectedData">
+        <h4>Selected Id Data.</h4>
+        <p><strong> Id : </strong>{{selectedData.id}}</p>
+        <p><strong>User Id  : </strong>{{selectedData.id}}</p>
+        <p><strong>Title  : </strong>{{selectedData.title}}</p>
+        <p><strong>Status  : </strong>{{selectedData.completed}}</p>
     </div>
     
 </div>
 
-<div *ngIf="todoSelectedUser">
-    <h4>Selected Id Data.</h4>
-    <p><strong> Id : </strong>{{todoSelectedUser.id}}</p>
-    <p><strong>User Id  : </strong>{{todoSelectedUser.id}}</p>
-    <p><strong>Title  : </strong>{{todoSelectedUser.title}}</p>
-    <p><strong>Status  : </strong>{{todoSelectedUser.completed}}</p>
-</div>
+
 
 
 
@@ -112,7 +110,7 @@
          
         <button (click)="getTodosForUserAndStatus()">Display User Todos</button>
     </div>
-    
+
     <div *ngIf="showTodos">
         <h3>User Todos</h3>
         <ul>
