@@ -14,7 +14,17 @@
 <h4><b>Http Get Method</b> <br>Get user list from fake placeholder api </h4>
 
 <div>
-
+    <!-- post request  -->
+        
+    <div class="container">
+        <h4>post the user data to api</h4>
+        <form  [formGroup]="userForm" action="" method="post" (submit)="onSubmit()">
+            <label>Name <input type="text" name="fullname" id="fullname" formControlName="fullName"></label><br>
+            <label>Email <input type="email" name="email" id="email" formControlName="email"></label><br>
+            <button type="submit">Submit user</button>
+        </form>
+    </div>
+    
     <div>
         <h3>User List</h3>
         <ul>
@@ -33,17 +43,17 @@
     <br>
     
     <!-- Display user information -->
-    <div *ngIf="selectedUser">
+    <div *ngIf="selectedUserData">
             <h3>User Details</h3>
-            <p><strong>ID:</strong> {{ selectedUser.id }}</p>
-            <p><strong>Name:</strong> {{ selectedUser.name }}</p>
-            <p><strong>username:</strong> {{ selectedUser.username }}</p>
-            <p><strong>Email:</strong> {{ selectedUser.email }}</p>
-            <p><strong>Address:</strong> {{ selectedUser.address.street +" "+selectedUser.address.suite +" "+selectedUser.address.city +" "+selectedUser.address.zipcode}}</p>
-            <p><strong>Geo Location:</strong> {{selectedUser.address.geo.lat+" "+ selectedUser.address.geo.lng}}</p>
-            <p><strong>phone:</strong> {{ selectedUser.phone }}</p>
-            <p><strong>site:</strong> {{ selectedUser.website }}</p>
-            <p><strong>company name:</strong> {{ selectedUser.company.name }}</p>
+            <p><strong>ID:</strong> {{ selectedUserData.id }}</p>
+            <p><strong>Name:</strong> {{ selectedUserData.name }}</p>
+            <p><strong>username:</strong> {{ selectedUserData.username }}</p>
+            <p><strong>Email:</strong> {{ selectedUserData.email }}</p>
+            <p><strong>Address:</strong> {{ selectedUserData.address.street +" "+selectedUserData.address.suite +" "+selectedUserData.address.city +" "+selectedUserData.address.zipcode}}</p>
+            <p><strong>Geo Location:</strong> {{selectedUserData.address.geo.lat+" "+ selectedUserData.address.geo.lng}}</p>
+            <p><strong>phone:</strong> {{ selectedUserData.phone }}</p>
+            <p><strong>site:</strong> {{ selectedUserData.website }}</p>
+            <p><strong>company name:</strong> {{ selectedUserData.company.name }}</p>
     </div>
     
     
@@ -122,6 +132,25 @@
         </ul>
     </div>
 </div>
-  
+
+<!-- get images req -->
+
+<!-- <div>
+    <div>
+        <h1>Get Request with images data</h1>
+    </div>
+    
+    <div *ngIf="imageData">
+        <h3>Images Data from url</h3>
+        <ul>
+        <li *ngFor="let todo of imageData">
+          {{ todo.title }} ( id :{{ todo.id }}) ( ThumbnailUrl : {{todo.thumbnailUrl}}) <br>
+          ({{todo.url}})
+        </li>
+        </ul>
+    </div>
+</div> -->
+
+
   
   
