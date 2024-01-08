@@ -17,13 +17,14 @@
     <!-- post request  -->
         
     <div class="container">
-        <h4>post the user data to api</h4>
+        <h4>Post The User Data To API</h4>
         <form  [formGroup]="userForm" action="" method="post" (submit)="onSubmit()">
             <label>Name <input type="text" name="fullname" id="fullname" formControlName="fullName"></label><br>
             <label>Email <input type="email" name="email" id="email" formControlName="email"></label><br>
             <button type="submit">Submit user</button>
         </form>
     </div>
+    <!-- post req end  -->
     
     <div>
         <h3>User List</h3>
@@ -62,6 +63,26 @@
 </div>
 
 <div>
+
+      <!-- post request  -->
+        
+      <div class="container">
+        <h4>Post The Todo Data To API</h4>
+        <form  [formGroup]="todoForm" action="" method="post" (submit)="onTodoSubmit()">
+            <label>User Id <input type="num" name="userid" id="userid" formControlName="userId"></label><br>
+            <label> Title <input type="text" name="title" id="title" formControlName="title"></label><br>
+            <label>Status:</label>
+            <select id="status" formControlName="status" name="status">
+              <option [ngValue]="">Select</option>
+              <option [ngValue]="true">Completed</option>
+              <option [ngValue]="false">Not Completed</option>
+            </select>
+            <button type="submit">Submit user</button>
+        </form>
+      </div>
+    <!-- post req end  -->
+    
+
     <div>
         <h4>Get Todo list with details </h4>
         <ul>
@@ -79,7 +100,7 @@
 <div *ngIf="todoSelectedUser">
     <h4>Selected Id Data.</h4>
     <p><strong> Id : </strong>{{todoSelectedUser.id}}</p>
-    <p><strong>User Id  : </strong>{{todoSelectedUser.id}}</p>
+    <p><strong>User Id  : </strong>{{todoSelectedUser.userId}}</p>
     <p><strong>Title  : </strong>{{todoSelectedUser.title}}</p>
     <p><strong>Status  : </strong>{{todoSelectedUser.completed}}</p>
 </div>

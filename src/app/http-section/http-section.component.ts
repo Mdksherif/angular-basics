@@ -77,7 +77,7 @@ export class HttpSectionComponent implements OnInit {
 
   // todo api starts
 
-  todoList: any[] = [];
+  todoList: any[] = []; // all details are stored on todo list array that will be used to find or filter by get method and push new data in to them. 
 
   getTodo() {
     this.http.get('https://jsonplaceholder.typicode.com/todos').subscribe(
@@ -92,8 +92,28 @@ export class HttpSectionComponent implements OnInit {
     );
   }
 
-  // get todo by id
+  // todo post data starts 
 
+  todoForm = new FormGroup({
+    userId: new FormControl(),
+    title: new FormControl(),
+    status : new FormControl()
+  });
+
+
+  onTodoSubmit(){
+    this.http.post('https://jsonplaceholder.typicode.com/todos', {
+      userId: this.todoForm.controls.userId.value,
+      title: this.todoForm.controls.title.value,
+      completed: this.todoForm.controls.status.value
+    }).subscribe((res)=>{
+      console.log("todo response", res)
+      this.todoList.push(res);
+    })
+  }
+  
+  // get todo by id
+  
   todoUserId: any;
   todoSelectedUser: any;
   getTodoById() {
