@@ -62,6 +62,7 @@ export class HttpSectionComponent implements OnInit {
   onSubmit() {
     console.log('form console', this.userForm.value);
     this.addUser();
+    this.userForm.reset();
   }
   addUser() {
     return this.http
