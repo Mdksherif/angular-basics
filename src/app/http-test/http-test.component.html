@@ -1,0 +1,173 @@
+<h4>http test components works</h4>
+<div class="alldiv">
+    <div class="alldiv">
+        <h4>Post The User Data To API</h4>
+        <form [formGroup]="userForm" (submit)="onSubmit()" method="post">
+            <p>
+                <label for="fullname">Full Name *</label>
+                <input type="text" id="fullname" name="fullname" formControlName="fullName"> 
+                <span class="text-danger" *ngIf="userForm.controls.fullName.hasError('required')&& (userForm.controls.fullName.dirty || userForm.controls.fullName.touched)">
+                    First Name is Invalid
+                </span>
+                <span class="text-danger" *ngIf="userForm.controls.fullName.hasError('maxlength') && (userForm.controls.fullName.touched || userForm.controls.fullName.dirty)">
+                    First Name should not exceed 15 characters
+                </span>
+            </p>
+            <p>
+                <label for="username">User Name *</label>
+                <input type="text" id="username" name="username" formControlName="userName">
+                <span class="text-danger" *ngIf="userForm.controls.userName.hasError('required') && (userForm.controls.userName.touched || userForm.controls.userName.dirty)">
+                  User Name is required
+                </span>
+                <span class="text-danger" *ngIf="userForm.controls.userName.hasError('maxlength') && (userForm.controls.userName.touched || userForm.controls.userName.dirty)">
+                  User Name should not exceed 10 characters
+                </span>
+                <span class="text-danger" *ngIf="userForm.controls.userName.hasError('pattern') && (userForm.controls.userName.touched || userForm.controls.userName.dirty)">
+                  User Name should contain only alphabets
+                </span>
+              </p>
+
+              <p>
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" formControlName="email">
+                <span class="text-danger" *ngIf="userForm.controls.email.hasError('required') && (userForm.controls.email.touched || userForm.controls.email.dirty)">
+                  Email is required
+                </span>
+                <span class="text-danger" *ngIf="userForm.controls.email.hasError('maxlength') && (userForm.controls.email.touched || userForm.controls.email.dirty)">
+                  Email should not exceed 10 characters
+                </span>
+                <span class="text-danger" *ngIf="userForm.controls.email.hasError('pattern') && (userForm.controls.email.touched || userForm.controls.email.dirty)">
+                  Email should contain only alphabets
+                </span>
+              </p>
+
+              <div formGroupName="address">
+                <p>
+                    <label for="street">street *</label>
+                    <input type="text" name="street" id="street" formControlName="street">
+                    <span class="text-danger" *ngIf="userForm.get('address.street')?.hasError('required') && (userForm.get('address.street')?.touched || userForm.get('address.street')?.dirty)">
+                        street is required
+                    </span>
+                      
+                </p>
+                <p>
+                    <label for="suite">suite *</label>
+                    <input type="text" name="suite" id="suite" formControlName="suite">
+                    <span class="text-danger" *ngIf="userForm.get('address.suite')?.hasError('required') && (userForm.get('address.suite')?.touched || userForm.get('address.suite')?.dirty)">
+                        suite is required
+                    </span>  
+                </p>
+                <p>
+                    <label for="city">city *</label>
+                    <input type="text" name="city" id="city" formControlName="city">
+                    <span class="text-danger" *ngIf="userForm.get('address.city')?.hasError('required') && (userForm.get('address.city')?.touched || userForm.get('address.city')?.dirty)">
+                        city is required
+                    </span>  
+                </p>
+                <p>
+                    <label for="pincode">Pincode *</label>
+                    <input type="text" name="pincode" id="pincode" formControlName="pincode" (keypress)="pincodeValid($event)">
+                </p>
+            </div>
+            <div formGroupName="geo">
+                <p>
+                    <label for="lat">Latitude</label>
+                    <input type="text" id="lat" name="lat"  formControlName="lat" >
+                </p>
+                <p>
+                    <label for="lon">Longitude</label>
+                    <input type="text" id="lon" name="lon"  formControlName="lon" >
+                </p>
+            </div>
+    
+             <p>
+                <label for="phone">phone</label>
+                <input type="text" id="phone" name="phone"  formControlName="phone" (keypress)="handleKeyPressNum($event)" >
+            </p>
+
+            <p>
+                <label for="website">website</label>
+                <input type="text" id="website" name="website"  formControlName="website">
+            </p>
+
+            <div formGroupName="company">
+
+                <p>
+                    <label for="catchPhrase">Company Name </label>
+                    <input type="text" id="catchPhrase" name="catchPhrase" formControlName="catchPhrase">
+                </p>
+            
+                <p>
+                    <label for="companyLocation">Company Location*</label>
+                    <select name="companyLocation" id="companyLocation" formControlName="companyLocation">
+                        <option value="">Select</option>
+                        <option value="India">India</option>
+                        <option value="USA">USA</option>
+                        <option value="UK">UK</option>
+                        <option value="UAE">UAE</option>
+                        <option value="Australia">Australia</option>
+                        <option value="China">China</option>
+                        <option value="Denmark">Denmark</option>
+                    </select>
+            
+                    <span class="text-danger" *ngIf="userForm.get('company.companyLocation')?.hasError('required') && (userForm.get('company.companyLocation')?.touched || userForm.get('company.companyLocation')?.dirty)">
+                        Company Location is required
+                    </span>
+                </p>
+            </div>
+            
+            <p>
+                <button type="submit" [disabled]="!userForm.valid">Submit</button>
+            </p>
+        </form>
+    </div>
+
+    
+</div>
+
+<div class="movie-table">
+    <h3>User List</h3>
+    <div class="">
+        <table border="1" class="">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>username</th>
+                    <th>email</th>
+                    <th>street</th>
+                    <th>suite</th>
+                    <th>city</th>
+                    <th>zipcode</th>
+                    <th>lat</th>
+                    <th>lng</th>
+                    <th>phone</th>
+                    <th>website</th>
+                    <th>Name</th>
+                    <th>catchPhrase</th>
+                    <!-- Add more columns if needed -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userData; let odd = odd; let i = index;" [ngClass]="{'odd-row': odd}">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.address.street }}</td>
+                    <td>{{ user.address.suite }}</td>
+                    <td>{{ user.address.city }}</td>
+                    <td>{{ user.address.zipcode }}</td>
+                    <td>{{ user.address.geo.lat }}</td>
+                    <td>{{ user.address.geo.lng }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.website }}</td>
+                    <td>{{ user.company.name }}</td>
+                    <td>{{ user.company.catchPhrase }}</td>
+                    <!-- Add more cells if needed -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  
+</div>

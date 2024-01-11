@@ -15,7 +15,8 @@ import { TemplateDrivenFormsTestComponent } from './template-driven-forms-test/t
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 import { ReactiveFormsTestComponent } from './reactive-forms-test/reactive-forms-test.component';
 import { HttpSectionComponent } from './http-section/http-section.component';
-import{ HttpClientModule } from '@angular/common/http'
+import{ HttpClientModule } from '@angular/common/http';
+import { HttpTestComponent } from './http-test/http-test.component'
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import{ HttpClientModule } from '@angular/common/http'
     TemplateDrivenFormsTestComponent,
     ReactiveFormsComponent,
     ReactiveFormsTestComponent,
-    HttpSectionComponent
+    HttpSectionComponent,
+    HttpTestComponent
   ],
   imports: [
     BrowserModule,
