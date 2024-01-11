@@ -16,7 +16,8 @@ import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.componen
 import { ReactiveFormsTestComponent } from './reactive-forms-test/reactive-forms-test.component';
 import { HttpSectionComponent } from './http-section/http-section.component';
 import{ HttpClientModule } from '@angular/common/http';
-import { HttpTestComponent } from './http-test/http-test.component'
+import { HttpTestComponent } from './http-test/http-test.component';
+import { UserLoginComponent } from './user-login/user-login.component'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HttpTestComponent } from './http-test/http-test.component'
     ReactiveFormsComponent,
     ReactiveFormsTestComponent,
     HttpSectionComponent,
-    HttpTestComponent
+    HttpTestComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
