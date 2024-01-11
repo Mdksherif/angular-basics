@@ -11,6 +11,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HttpTestComponent implements OnInit {
 
+  userData: any[] = [];
+  isUserListVisible: boolean = false;
   
 
   constructor(private http: HttpClient) { }
@@ -41,10 +43,10 @@ export class HttpTestComponent implements OnInit {
   })
 
 
-  userData: any[] = [];
+
 
   ngOnInit(): void {
-    this.getUser();
+    // this.getUser(); // getUser will call when the show user button clicks 
   }
 
   onSubmit(){
@@ -98,6 +100,22 @@ export class HttpTestComponent implements OnInit {
     )
   }
 
+  // get user api will call when the show user button clicked when the button clicks it calls the showUserList api
+  showAndHideUserList(){
+    this.getUser();
+    this.isUserListVisible = !this.isUserListVisible;
+    console.log("buttonvisiblity", this.isUserListVisible)
+  }
+
+  showUserList(){
+    this.getUser();
+    this.isUserListVisible = true;
+    console.log("buttonvisiblity", this.isUserListVisible)
+  }
+
+  hideUserList(){
+    this.isUserListVisible= false
+  }
 
   //only validations below
  

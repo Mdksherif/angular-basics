@@ -120,14 +120,28 @@
                 <button type="submit" [disabled]="!userForm.valid">Submit</button>
             </p>
         </form>
+        <div>
+            <p>Below button is same to show or hide table </p>
+            <button (click)="showAndHideUserList()"> {{ isUserListVisible ? 'Hide User List' : 'Show User List' }}</button>
+        </div>
+
+        <div>
+            <p>Below button is only show table </p>
+            <button (click)="showUserList()"> show user list</button>
+        </div>
+        
     </div>
 
     
 </div>
 
-<div class="movie-table">
-    <h3>User List</h3>
+
+<div class="movie-table" *ngIf="isUserListVisible">
+   
+   
     <div class="">
+        <h3>User List</h3> 
+          <button (click)="hideUserList()"> hide user list</button>
         <table border="1" class="">
             <thead>
                 <tr>
