@@ -17,7 +17,16 @@ import { ReactiveFormsTestComponent } from './reactive-forms-test/reactive-forms
 import { HttpSectionComponent } from './http-section/http-section.component';
 import{ HttpClientModule } from '@angular/common/http';
 import { HttpTestComponent } from './http-test/http-test.component'
-
+// import router module 
+import { RouterModule, Routes } from '@angular/router';
+// create a const and set type as Routes
+const appRoutes: Routes =[
+  { path:'', component:BasicsComponent },
+  { path:'directives', component:DirectivesComponent },
+  { path:'form', component:FormComponent },
+  { path:'formlist', component: ListComponent },
+  { path:'hooks', component:HooksComponent },
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +49,8 @@ import { HttpTestComponent } from './http-test/http-test.component'
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RouterModule.forRoot(appRoutes) // pass the approutes to router module
+
     
     
   ],
