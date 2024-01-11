@@ -16,7 +16,7 @@ export class HttpTestComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   userForm = new FormGroup({
-    fullName: new FormControl('',[Validators.required, Validators.maxLength(10)]),
+    fullName: new FormControl('',[Validators.required, Validators.maxLength(25)]),
     userName: new FormControl('', [Validators.required, Validators.maxLength(10), Validators.pattern(/^[a-zA-Z]+$/)]),
     email: new FormControl('',[Validators.email, Validators.required]),
 
@@ -42,9 +42,11 @@ export class HttpTestComponent implements OnInit {
 
 
   userData: any[] = [];
+  isUserTable: boolean = false
+
 
   ngOnInit(): void {
-    this.getUser();
+    // this.getUser();
   }
 
   onSubmit(){
@@ -96,6 +98,11 @@ export class HttpTestComponent implements OnInit {
       console.log('error', error);
     }
     )
+  }
+
+  showhidetable(){
+    this.getUser()
+    this.isUserTable= !this.isUserTable
   }
 
 

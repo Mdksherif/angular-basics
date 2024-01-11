@@ -10,7 +10,7 @@
                     First Name is Invalid
                 </span>
                 <span class="text-danger" *ngIf="userForm.controls.fullName.hasError('maxlength') && (userForm.controls.fullName.touched || userForm.controls.fullName.dirty)">
-                    First Name should not exceed 15 characters
+                    First Name should not exceed 25 characters
                 </span>
             </p>
             <p>
@@ -120,12 +120,13 @@
                 <button type="submit" [disabled]="!userForm.valid">Submit</button>
             </p>
         </form>
+        <button (click)="showhidetable()">{{isUserTable ? 'Hide user List': 'Show User List'}}</button>
     </div>
 
     
 </div>
 
-<div class="movie-table">
+<div class="movie-table" *ngIf="isUserTable">
     <h3>User List</h3>
     <div class="">
         <table border="1" class="">
