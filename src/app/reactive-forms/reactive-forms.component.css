@@ -1,3 +1,65 @@
-h4{
-    color: blue;
-}
+/* add common csss */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f81111;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  div {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #0b73e317;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  div *ngIf {
+    margin-top: 15px;
+  }
+
+  h2, h4, h1, h3 {
+    color: #007bff;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+  li:hover {
+    background-color: #93d9f7;
+    transition: background-color 0.3s ease;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+  }
+
+  input, select, button {
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }

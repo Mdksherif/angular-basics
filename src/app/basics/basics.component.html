@@ -1,50 +1,62 @@
 <h3>Basics component works</h3>
+<div>
+    <h4>oneway data binding</h4> 
+    {{firstname +" "+ lastname}}
+</div>
 
-<h4>oneway data binding</h4> 
-{{firstname +" "+ lastname}}
+<div>
+    <h4>property binding</h4> 
+    <p [innerText]="title"></p>
+</div>
 
-<h4>property binding</h4> 
-<p [innerText]="title"></p>
+<div>
+    <h4>2way binding</h4> 
+    <input type="text" [(ngModel)]="name"> <br>
+    <p>Value : {{name}}</p>
+</div>
+<div>
+    <h4>String Interpollation</h4>
+    <p>{{welcome +" to angular"}} </p>
+    <p>{{getTitle()}}</p>
+    <p>100 x 10 = {{100*10}}</p>
+    <p>Largest Number = {{getHigh(100,200)}}</p>
+    <p style.color="{{colour}}">string interpulation is also used to apply for css property eg: is this Line</p>
+</div>
 
-<h4>2way binding</h4> 
-<input type="text" [(ngModel)]="name"> <br>
-<p>Value : {{name}}</p>
 
-<h4>String Interpollation</h4>
-<p>{{welcome +" to angular"}} </p>
-<p>{{getTitle()}}</p>
-<p>100 x 10 = {{100*10}}</p>
-<p>Largest Number = {{getHigh(100,200)}}</p>
-<p style.color="{{colour}}">string interpulation is also used to apply for css property eg: is this Line</p>
 
 <div><h4>Property binding</h4> 
     <span>(google it by dom element properties for more) </span>
     <p [innerText]="position"></p>
 </div>
+<div>
+    <h4>Event Binding</h4>
+    <!-- onclick, Mouse hover, keypress -->
+    
+    <button [disabled]="isDisabled" *ngIf="position === 'senior developer'">Submit1</button>
+    <p>check why the submit1 hided</p>
+    <!-- // the button will be hide if doesnot position matches with values  -->
+    
+    <button [disabled]="position !== 'senior developers'">Submit2</button>
+    <!-- the button only disabled not hide when the condition makes false -->
+    <!-- on click -->
+    <p>you have clicked {{clickCount}} </p>
+    <button (click)="clickMe()">click me </button>
+    
+    <p>you have clicked {{count}} </p>
+    
+    <button (click)="clicks(); count1 = count">count</button>
+    <p>copied count {{count1}} </p>
+    
+</div>
+<div>
+    <h4>Event Handling </h4>
+    <!-- To handle the events by passing the value from view to component -->
+    <input type="text" (input)="handleInput($event)" placeholder="type something...">
+    <p>value : {{inputValue}}</p>
+    <p>learn more events from mdn by google search of dom events</p>
+</div>
 
-<h4>Event Binding</h4>
-<!-- onclick, Mouse hover, keypress -->
-
-<button [disabled]="isDisabled" *ngIf="position === 'senior developer'">Submit1</button>
-<p>check why the submit1 hided</p>
-<!-- // the button will be hide if doesnot position matches with values  -->
-
-<button [disabled]="position !== 'senior developers'">Submit2</button>
-<!-- the button only disabled not hide when the condition makes false -->
-<!-- on click -->
-<p>you have clicked {{clickCount}} </p>
-<button (click)="clickMe()">click me </button>
-
-<p>you have clicked {{count}} </p>
-
-<button (click)="clicks(); count1 = count">count</button>
-<p>copied count {{count1}} </p>
-
-<h4>Event Handling </h4>
-<!-- To handle the events by passing the value from view to component -->
-<input type="text" (input)="handleInput($event)" placeholder="type something...">
-<p>value : {{inputValue}}</p>
-<p>learn more events from mdn by google search of dom events</p>
 
 
  

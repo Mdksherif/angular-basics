@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BasicsComponent } from './basics/basics.component';
@@ -15,18 +14,12 @@ import { TemplateDrivenFormsTestComponent } from './template-driven-forms-test/t
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 import { ReactiveFormsTestComponent } from './reactive-forms-test/reactive-forms-test.component';
 import { HttpSectionComponent } from './http-section/http-section.component';
-import{ HttpClientModule } from '@angular/common/http';
-import { HttpTestComponent } from './http-test/http-test.component'
+import { HttpClientModule } from '@angular/common/http';
+import { HttpTestComponent } from './http-test/http-test.component';
 // import router module 
-import { RouterModule, Routes } from '@angular/router';
 // create a const and set type as Routes
-const appRoutes: Routes =[
-  { path:'', component:BasicsComponent },
-  { path:'directives', component:DirectivesComponent },
-  { path:'form', component:FormComponent },
-  { path:'formlist', component: ListComponent },
-  { path:'hooks', component:HooksComponent },
-]
+// set <router-outlet></router-outlet> on app component.html
+// set app component html 
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,11 +41,7 @@ const appRoutes: Routes =[
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    RouterModule.forRoot(appRoutes) // pass the approutes to router module
-
-    
-    
+    HttpClientModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]

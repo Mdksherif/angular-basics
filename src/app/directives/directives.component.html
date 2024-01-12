@@ -1,6 +1,17 @@
 <h2>Directives components works!</h2>
-<h4>Directives </h4><p>component directives, structural directives, attribute directives</p>
-<p><b>component directives </b>are component is a directive with a template. It encapsulates a specific functionality and UI, making it a reusable building block in your application.</p>
+
+<div>
+  <h4>Directives</h4>
+  <p>component directives, structural directives, attribute directives</p>
+</div>
+
+<div>
+  <p>
+    <b>component directives </b>are component is a directive with a template. It
+    encapsulates a specific functionality and UI, making it a reusable building
+    block in your application.
+  </p>
+</div>
 
 <!-- // Example of a Component Directive
 @Component({
@@ -10,22 +21,34 @@
 export class ExampleComponent {
   // Component logic goes here
  } -->
- <p><b>Structural Directives</b> Structural directives change the structure of the DOM by adding or removing elements. They are recognizable by the * (asterisk) syntax in the template.</p>
- 
- <!-- *ngIf -->
- <div *ngIf="isVisible">This element is conditionally rendered based on isVisible value is true else the div not shown</div><br>
+<div>
+  <p>
+    <b>Structural Directives</b> Structural directives change the structure of
+    the DOM by adding or removing elements. They are recognizable by the *
+    (asterisk) syntax in the template. <b>*ngIf, *ngFor, *ngSwitch</b>
+  </p>
+</div>
+<div>
+  <p><b>*ngIf</b>isVisible is setted default as true</p>
+  <div *ngIf="isVisible">
+    This element is conditionally rendered based on isVisible value is true else
+    the div not shown
+  </div>
+  <br />
+</div>
+<!-- *ngIf -->
 
- <!-- *ngFor using array-->
- <div class="item">
-  <h4 style="margin-top: -10px; margin-bottom: -10px;">list of items</h4>
+<!-- *ngFor using array-->
+<div>
+  <h4>list of items</h4>
   <ul>
-    <li *ngFor="let item of items">{{ item }}</li>
+    <li *ngFor="let item of items" style="margin-left: 10px">{{ item }}</li>
   </ul>
 </div>
 
 <!-- ngFor using objects -->
 <div>
-  <h4>Movies List With Details using array of objects </h4>
+  <h4>Movies List With Details using array of objects</h4>
   <table class="movie-table">
     <thead>
       <tr>
@@ -39,14 +62,17 @@ export class ExampleComponent {
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let film of films; let odd = odd; let i = index;"  [ngClass]="{'odd-row': odd}">
-        <td>{{i+1}}</td>
+      <tr
+        *ngFor="let film of films; let odd = odd; let i = index"
+        [ngClass]="{ 'odd-row': odd }"
+      >
+        <td>{{ i + 1 }}</td>
         <td>{{ film.title }}</td>
         <td>{{ film.budget }}</td>
         <td>{{ film.days }}</td>
-        <td>{{ film.crews.join(', ') }}</td>
+        <td>{{ film.crews.join(", ") }}</td>
         <td>{{ film.earns }}</td>
-        <td>{{ film.directors.join(', ') }}</td>
+        <td>{{ film.directors.join(", ") }}</td>
       </tr>
     </tbody>
   </table>
@@ -54,20 +80,23 @@ export class ExampleComponent {
 
 <!-- ng switch cases  -->
 <div>
-  <h4>ngSwithch cases : it works by based on the selected value to get the div remaining divs are hide </h4>
-  <input type="text" [(ngModel)]="selectedMovieGenre">
+  <h4>
+    ngSwithch cases : it works by based on the selected value to get the div
+    remaining divs are hide
+  </h4>
+  <input type="text" [(ngModel)]="selectedMovieGenre" />
 
   <div [ngSwitch]="selectedMovieGenre">
     <div *ngSwitchCase="'Action'">
-      <h2>Action Movies div called </h2>
-    </div> 
+      <h2>Action Movies div called</h2>
+    </div>
 
     <div *ngSwitchCase="'Comedy'">
-      <h2>Comedy Movies called </h2>
+      <h2>Comedy Movies called</h2>
     </div>
 
     <div *ngSwitchCase="'Drama'">
-      <h2>Drama Movies called </h2>
+      <h2>Drama Movies called</h2>
     </div>
 
     <div *ngSwitchDefault>
@@ -75,126 +104,168 @@ export class ExampleComponent {
     </div>
   </div>
 </div>
-
-<input type="text" [(ngModel)]="num">
-<div [ngSwitch]="num">
-  <div *ngSwitchCase="1">
-    <h2>number1 div called</h2>
-  </div>
-  <div *ngSwitchCase="2">
-    <h2>number 2 div called</h2>
-  </div>
-  <div *ngSwitchCase="3">
-    <h2>number 3 div called</h2>
-  </div>
-  <div *ngSwitchDefault>
-    <h2>other div called</h2>
+<div>
+  <h4>enter the num on textbox based on the input we get the div</h4>
+  <input type="text" [(ngModel)]="num" />
+  <div [ngSwitch]="num">
+    <div *ngSwitchCase="1">
+      <h2>number1 div called</h2>
+    </div>
+    <div *ngSwitchCase="2">
+      <h2>number 2 div called</h2>
+    </div>
+    <div *ngSwitchCase="3">
+      <h2>number 3 div called</h2>
+    </div>
+    <div *ngSwitchDefault>
+      <h2>other div called</h2>
+    </div>
   </div>
 </div>
 
+
 <!-- *ngIf -->
-<h4>ngIf Examples</h4>
-<p *ngIf="true">hello iam true pls check the false stmt code</p>
-<p *ngIf="false">hello im false im not visible cause my if condition is false</p>
-<p *ngIf="!false">hello im false im not visible cause my if condition is false</p>
-<p *ngIf="!selected">hello I'm ngIf </p>
-<p *ngIf="selected && content">hello im shown cause selected and content are true </p>
+<div>
+  <h4>ngIf Examples</h4>
+  <p>if the ng value is true it will show the div else it does not show</p>
+  <p *ngIf="true">hello iam true pls check the false stmt code</p>
+  <p *ngIf="false">
+    hello im false im not visible cause my if condition is false
+  </p>
+  <p *ngIf="!false">
+    hello im false im not visible cause my if condition is true
+  </p>
+  <p *ngIf="!selected">hello I'm ngIf</p>
+  <p *ngIf="selected && content">
+    hello im shown cause selected and content are true
+  </p>
+</div>
 
 <!-- ngIf only -->
-<div class="row">
-  <label for="">CheckBox</label><input type="checkbox" [(ngModel)]="checkbox1">
+<div>
+  <label for="">CheckBox <input type="checkbox" [(ngModel)]="checkbox1"/></label>
   <p *ngIf="checkbox1">checkbox is clicked</p>
   <p *ngIf="!checkbox1">checkbox is not clicked</p>
 </div>
 
+
 <!-- ngIf with else block -->
 <!-- eg 1 -->
-<h4>ngIf with else block </h4>
-<div class="row">
-  <label for="">CheckBox</label><input type="checkbox" [(ngModel)]="checkbox2">
-  <p *ngIf="checkbox2; else elseBlock">checkbox is clicked</p>
 
+<div class="row">
+  <h4>ngIf with else block</h4>
+  <label for="">CheckBox <input type="checkbox" [(ngModel)]="checkbox2" /></label>
+  <p *ngIf="checkbox2; else elseBlock">checkbox is clicked</p>
   <ng-template #elseBlock>
-    <p>else bolck displayed and checkbox 2 is false </p>
+    <p>else bolck displayed and checkbox 2 is false</p>
   </ng-template>
 </div>
 
 <div>
-  <input type="text" [(ngModel)]="thenvalue">
-  <p *ngIf="thenvalue == 'hello'; then thenBlock else elseBlock1"></p>
+  <input type="text" [(ngModel)]="thenvalue" />
+  <p *ngIf="thenvalue == 'hello'; then thenBlock; else elseBlock1"></p>
   <ng-template #thenBlock>
-    <p>hello then block called cause thenvalue is true reason while binding default value is hello</p>
+    <p>
+      hello then block called cause thenvalue is true reason while binding
+      default value is hello
+    </p>
   </ng-template>
   <ng-template #elseBlock1>
-    <p>hello im else block reason thenvalue is not equal to hello </p>
+    <p>hello im else block reason thenvalue is not equal to hello type hello to show the thenblock</p>
   </ng-template>
 </div>
-
-
 
 <!-- attribute directive  -->
 <!-- ngClass -->
-<h4>Attribute directive</h4>
-
-<h4>[ngClass]</h4>
-<div [ngClass]="['testClass1','testClass2','testClass3']">hello im shown using attribute directive [ngClass] using array declarations</div>
-<div [ngClass]="{'testClass1':true,'testClass2':false,'testClass3':true}">hello im shown using attribute directive [ngClass] using object value declarations</div>
-<input type="checkbox" [(ngModel)]="enableRed"><span [ngClass]= "{paraStyleColor:enableRed}">Hello if the checkbox selected im in red color due </span>
-<br><br>
 <div>
-  <input type="checkbox" [(ngModel)]="contentColor"><label>green</label>
-  <input type="checkbox" [(ngModel)]="contentfontstyle"><label>Italic</label>
-  <input type="checkbox" [(ngModel)]="contentfontweight"><label>Bold</label>
-  <p [ngClass]="{'ColorStyle':contentColor,'fontstyle':contentfontstyle,'fontWeights':contentfontweight}">hello this is the dummy text by changing styles based on selection of checkbox</p>
+  <h4>Attribute directive</h4>
+  <h4>[ngClass]</h4>
+  <div [ngClass]="['testClass1', 'testClass2', 'testClass3']">
+    hello im shown using attribute directive [ngClass] using array declarations
+  </div>
+
+  <div [ngClass]="{ testClass1: true, testClass2: false, testClass3: true }">
+    hello im shown using attribute directive [ngClass] using object value
+    declarations
+  </div>
 </div>
 
-<h4>[ngStyle]</h4>
 <div>
-  Color:<input type="text" [(ngModel)]="styleModelcolor" placeholder="enter any color">
-  <p [ngStyle]="{'backgroundColor':styleModelcolor}">hello im works using [ngstyle]</p>
-</div>
-<div [ngStyle]="{'color':status == 'pass'?'red':'blue'}">
-  hello world im showing in red if status is pass or blue if status is !== pass
+  <label>Enable Red <input type="checkbox" [(ngModel)]="enableRed" />
+    <span [ngClass]="{ paraStyleColor: enableRed }">
+      Hello if the checkbox selected im in red color due
+    </span>
+  </label>
 </div>
 
+
+<div>
+  <label><input type="checkbox" [(ngModel)]="contentColor" />Green</label>
+  <label><input type="checkbox" [(ngModel)]="contentfontstyle" />Italic</label>
+  <label><input type="checkbox" [(ngModel)]="contentfontweight" />Bold</label>
+  <p [ngClass]="{ ColorStyle: contentColor, fontstyle: contentfontstyle, fontWeights: contentfontweight }">
+    hello this is the dummy text by changing styles based on selection of
+    checkbox
+  </p>
+</div>
+
+<div>
+  <h4>[ngStyle]</h4>
+  <div>
+    <label>Color :<input type="text" [(ngModel)]="styleModelcolor" placeholder="enter any color"/></label> 
+    <p [ngStyle]="{ backgroundColor: styleModelcolor }">
+      hello im works using [ngstyle]
+    </p>
+  </div>
+  <div [ngStyle]="{ color: status == 'pass' ? 'red' : 'blue' }">
+    hello im showing in red if status is pass or blue if status is !== pass
+  </div>
+  
+</div>
 
 <!--Pipes-->
-<h4>Pipes</h4>
-<p>Without using pipes today = {{today}}</p>
-<p>Using date pipes = {{today|date}}</p>
-<p>Using date pipes using Medium argument = {{today|date:'medium'}}</p>
-<p>Using date pipes using short  = {{today|date:'short'}}</p>
-<p>Using date pipes using full date = {{today|date:'fullDate'}}</p>
-<p>Using long date pipes = {{today|date:'longDate'}}</p>
-<p>Using custom format  = {{today|date:'dd/mm/yyyy'}}</p>
-<!-- currencies pipes -->
+<div>
+  <h4>Pipes</h4>
+  <p>Without using pipes today = {{ today }}</p>
+  <p>Using date pipes = {{ today | date }}</p>
+  <p>Using date pipes using Medium argument = {{ today | date : "medium" }}</p>
+  <p>Using date pipes using short = {{ today | date : "short" }}</p>
+  <p>Using date pipes using full date = {{ today | date : "fullDate" }}</p>
+  <p>Using long date pipes = {{ today | date : "longDate" }}</p>
+  <p>Using custom format = {{ today | date : "dd/mm/yyyy" }}</p>
+
+  <!-- currencies pipes -->
 <h4>curreny pipes</h4>
-hello: <input type="text" [(ngModel)]="amount" placeholder="enter your amount"><br>
-<p>selected ammount is {{ amount | currency:'USD':'symbol':'1.2-2' }}</p>
-<p>selected ammount is {{ amount | currency:'INR':'symbol':'1.2-2' }}</p>
-<p>selected ammount is {{ amount | currency:'INR':true:'1.2-2'}} INR </p>
-<p>selected ammount is {{ 'INR ' + (amount | currency:'INR':true:'1.2-2') }} </p>
+hello:
+<input type="text" [(ngModel)]="amount" placeholder="enter your amount" /><br />
+<p>selected ammount is {{ amount | currency : "USD" : "symbol" : "1.2-2" }}</p>
+<p>selected ammount is {{ amount | currency : "INR" : "symbol" : "1.2-2" }}</p>
+<p>selected ammount is {{ amount | currency : "INR" : true : "1.2-2" }} INR</p>
+<p>
+  selected ammount is
+  {{ "INR " + (amount | currency : "INR" : true : "1.2-2") }}
+</p>
 <!-- percentage pipes -->
 <h4>percentage pipes</h4>
-<p>{{ 0.75 | percent:'2.2-2' }} </p>
-
+<p>{{ 0.75 | percent : "2.2-2" }}</p>
 
 <!-- json pipes -->
 <h4>JSON Pipes</h4>
-<p>{{demoObject | json}}</p>
+<p>{{ demoObject | json }}</p>
 
 <!-- lowercase pipes -->
 <h4>lower case & uppercase pipes</h4>
-<p>Using lowercase string =  {{DemoString | lowercase}}</p>
-<p>Using Uppercase string =  {{DemoString | uppercase}}</p>
-<p>Convert the first letter to uppercase =  {{DemoString | titlecase}}</p>
+<p>Using lowercase string = {{ DemoString | lowercase }}</p>
+<p>Using Uppercase string = {{ DemoString | uppercase }}</p>
+<p>Convert the first letter to uppercase = {{ DemoString | titlecase }}</p>
 
 <!-- slice pipes -->
 <h4>slice pipes</h4>
-<p>Convert Angulars slice of 0,4 => {{ 'Angular14' | slice:0:9 }} </p>
-<p>Convert Angular14 slice of 0,4 => {{ 'Angular14' | slice:0:4 }} </p>
-<p>Convert Angular14 slice of 1,4 => {{ 'Angular14' | slice:1:4 }} </p>
-<p>Convert Angular14 slice of 4,9 => {{ 'Angular14' | slice:4:9 }} </p>
+<p>Convert Angulars slice of 0,4 => {{ "Angular14" | slice : 0 : 9 }}</p>
+<p>Convert Angular14 slice of 0,4 => {{ "Angular14" | slice : 0 : 4 }}</p>
+<p>Convert Angular14 slice of 1,4 => {{ "Angular14" | slice : 1 : 4 }}</p>
+<p>Convert Angular14 slice of 4,9 => {{ "Angular14" | slice : 4 : 9 }}</p>
 <b>Learn Async data$ | async after the http client integrated</b>
+</div>
 
 

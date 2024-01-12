@@ -1,7 +1,10 @@
 <h2>Reactive forms components working </h2>
-<h4>Reactive forms Module </h4>
-<p><b>Notes: </b> import <b>formsModule</b> in app module for template driven forms</p>
-<p>As like import <b>ReactiveFormsModule</b> in app Module for Reactive Forms</p>
+<div>
+    <h4>Reactive forms Module </h4>
+    <p><b>Notes: </b> import <b>formsModule</b> in app module for template driven forms</p>
+    <p>As like import <b>ReactiveFormsModule</b> in app Module for Reactive Forms</p>
+</div>
+
 
 <div class="container">
     <form [formGroup]="contactForm" (submit)="onSubmit()"> 
@@ -125,7 +128,6 @@
 
 <div *ngIf="contactFormData">
     <h2>User Information</h2>
-    
     <p><strong>First Name:</strong> {{ contactFormData.firstName }}</p>
     <p><strong>Last Name:</strong> {{ contactFormData.lastName }}</p>
     <p><strong>Age:</strong> {{ contactFormData.age }}</p>
