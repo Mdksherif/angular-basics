@@ -1,19 +1,24 @@
 <h3>Basics component works</h3>
 <div>
-    <h4>oneway data binding</h4> 
+    <h4>oneway data binding</h4>
+    <p><b>Notes: oneway data binding is used to transfer the data from component to view or vice versa by using string interpollation it cannot be modified once initialized.</b></p> 
     {{firstname +" "+ lastname}}
 </div>
 
 <div>
-    <h4>property binding</h4> 
+    <h4>property binding</h4>
     <p [innerText]="title"></p>
+    <p><b>Notes: property binding is used to pass the attribute [innerText]="content" (inside the tags pass as an attribute) what inside the content that will shown to view</b></p>
 </div>
 
 <div>
     <h4>2way binding</h4> 
     <input type="text" [(ngModel)]="name"> <br>
     <p>Value : {{name}}</p>
+    <p><b>Notes: 2 way data binding is used to transfer the data between component to view or vice versa in this we modifies the data after initialized.</b></p>
+    <p><b>Rule :</b>It requires to import forms Module in app module.ts</p>
 </div>
+
 <div>
     <h4>String Interpollation</h4>
     <p>{{welcome +" to angular"}} </p>
@@ -21,13 +26,17 @@
     <p>100 x 10 = {{100*10}}</p>
     <p>Largest Number = {{getHigh(100,200)}}</p>
     <p style.color="{{colour}}">string interpulation is also used to apply for css property eg: is this Line</p>
+    <p><b>Notes:</b> In Angular, string interpolation is a way to embed expressions within template literals or double curly braces. It allows you to display dynamic data in your templates.</p>
 </div>
 
 
 
 <div><h4>Property binding</h4> 
-    <span>(google it by dom element properties for more) </span>
-    <p [innerText]="position"></p>
+
+    <p [innerText]="position"></p>  
+    <p><b>Notes : </b>As Discussed above we bind the data in tags</p>
+    <p>(google it by dom element properties for more) </p>
+
 </div>
 <div>
     <h4>Event Binding</h4>
@@ -47,6 +56,8 @@
     
     <button (click)="clicks(); count1 = count">count</button>
     <p>copied count {{count1}} </p>
+
+    <p><b>Notes: </b>In Angular, event binding is a way to capture and respond to events (such as user interactions) in the template and execute corresponding actions in the component.</p>
     
 </div>
 <div>
@@ -54,6 +65,7 @@
     <!-- To handle the events by passing the value from view to component -->
     <input type="text" (input)="handleInput($event)" placeholder="type something...">
     <p>value : {{inputValue}}</p>
+    <p><b>Notes: </b>To handle the events by passing the value from view to component</p>
     <p>learn more events from mdn by google search of dom events</p>
 </div>
 

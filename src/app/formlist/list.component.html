@@ -26,6 +26,53 @@
   </ng-template>
 </div>
 
+<div>
+  <h3>List of Address Form Data</h3>
+  <div *ngIf="AddressformData; then addressformdata; else noformdata"></div>
+  <ng-template #addressformdata>
+    <p>Received Form Data:</p>
+    <ul>
+      <li>Locality: {{ AddressformData.locality }}</li>
+      <li>Pincode: {{ AddressformData.pincode }}</li>
+      <li>State: {{ AddressformData.state }}</li>
+    </ul>
+  </ng-template>
+  <ng-template #noformdata>
+    <p>No Data Available</p>
+  </ng-template>
+</div>
+
+<!-- <div>
+  <h3>List of Orders Form </h3>
+  <div *ngIf="orderformdata; then orderformdata; else noorderformdata"></div>
+  <ng-template #orderformdata>
+    <p>Received Form Data:</p>
+    <ul>
+      <li *ngFor="let orders of orderformdata">{{orderformdata.orderid }}</li>
+    </ul>
+  </ng-template>
+  <ng-template #noorderformdata>
+    <p>No Data Available</p>
+  </ng-template>
+</div> -->
+<!-- list.component.html -->
+<div>
+  <h3>List of Orders Form </h3>
+  <div *ngIf="orderformdata.length>0; then orderformdataTemplate else noorderformdata"></div>
+  <ng-template #orderformdataTemplate>
+    <p>Received Form Data:</p>
+    <ul>
+      <li *ngFor="let orders of orderformdata">
+        Order ID: {{ orders.orderid }}, Product Name: {{ orders.productname }}, Quantity: {{ orders.quantity }}
+      </li>
+    </ul>
+  </ng-template>
+  <ng-template #noorderformdata>
+    <p>No Data Available</p>
+  </ng-template>
+</div>
+
+
 
 
   

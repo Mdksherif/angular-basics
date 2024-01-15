@@ -133,11 +133,11 @@ export class ExampleComponent {
     hello im false im not visible cause my if condition is false
   </p>
   <p *ngIf="!false">
-    hello im false im not visible cause my if condition is true
+    hello im also not false so im visible cause my if condition is true
   </p>
-  <p *ngIf="!selected">hello I'm ngIf</p>
+  <p *ngIf="!selected">in default selected value is true but in condition (! selected ) which mean </p>
   <p *ngIf="selected && content">
-    hello im shown cause selected and content are true
+    hello im shown cause selected and content values are true
   </p>
 </div>
 
@@ -185,8 +185,8 @@ export class ExampleComponent {
   </div>
 
   <div [ngClass]="{ testClass1: true, testClass2: false, testClass3: true }">
-    hello im shown using attribute directive [ngClass] using object value
-    declarations
+    <p>hello im shown using attribute directive [ngClass] using object value declarations</p>
+    <p> my style testClas1, and testclass3 only testclas2 is set as false so testclass2 in not applied </p>
   </div>
 </div>
 
@@ -214,7 +214,7 @@ export class ExampleComponent {
   <div>
     <label>Color :<input type="text" [(ngModel)]="styleModelcolor" placeholder="enter any color"/></label> 
     <p [ngStyle]="{ backgroundColor: styleModelcolor }">
-      hello im works using [ngstyle]
+      hello im works using [ngstyle] 
     </p>
   </div>
   <div [ngStyle]="{ color: status == 'pass' ? 'red' : 'blue' }">

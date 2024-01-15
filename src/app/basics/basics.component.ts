@@ -61,6 +61,8 @@ export class BasicsComponent implements OnInit {
     this.inputValue = event.target.value
   }
 
+ 
+
 
 
  

@@ -1,22 +1,42 @@
 
 <h2>Form components works</h2>
-<h4>Transfer the data from one component to another (parent to child)</h4>
-<form>
-    <label for="carName">Car Name:</label>
-    <input type="text" id="carName" name="carname" [(ngModel)]="carName" placeholder="Enter car name">
-    <button (click)="addCars()">Submit</button>
-</form><br>
+<div>
+    <h4>Transfer the data from one component to another (parent to child)</h4>
 
-<form>
-    <label for="fullname">Full Name:</label>
-    <input type="text" id="fullname" name= "fullname" [(ngModel)]="fullname" placeholder="Enter your full name" required>
-    <button (click)="getName()">Submit</button>
-</form>
-<br>
+    <form>
+        <label for="carName">Car Name:</label>
+        <input type="text" id="carName" name="carname" [(ngModel)]="carName" placeholder="Enter car name">
+        <button (click)="addCars()">Submit</button>
+    </form><br>
+    
+    <form #myForm="ngForm">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="firstname" name= "firstname" [(ngModel)]="firstname" placeholder="Enter your firstname" required>
+        <input type="text" id="lastname" name= "lastname" [(ngModel)]="lastname" placeholder="Enter your lastname" required>
+        <button (click)="getName(myForm)">Submit</button>
+    </form>
+
+    <div>
+        <form #detailForm="ngForm">
+            <label for="">Locality <input type="text" id="locality" name= "locality" [(ngModel)]="locality" placeholder="Enter your locality" required></label>
+            <label for="">Pincode  <input type="text" id="pincode" name= "pincode" [(ngModel)]="pincode" placeholder="Enter your pincode" required></label>
+            <label for="">State    <input type="text" id="state" name= "state" [(ngModel)]="state" placeholder="Enter your state" required></label>
+            <button (click)="submitAddressForm(detailForm)">Submit</button>
+        </form>
+        <br>
+    </div>
+    <div>
+        <form #orderForm="ngForm">
+            <label for="">orderid <input type="text" id="orderid" name= "orderid" [(ngModel)]="orderid" placeholder="Enter your orderid" required></label>
+            <label for="">productname  <input type="text" id="productname" name= "productname" [(ngModel)]="productname" placeholder="Enter your productname" required></label>
+            <label for="">quantity    <input type="text" id="quantity" name= "quantity" [(ngModel)]="quantity" placeholder="Enter your quantity" required></label>
+            <button (click)="submitOrderForm(orderForm)">Submit</button>
+        </form>
+        <br>
+    </div>
+</div>
 <!-- check this below line   -->
-<app-list [inputcars]="cars" [inputList]="nameList"></app-list>
-
-
+<app-list [inputcars]="cars" [inputList]="nameList" [AddressformData]="AddressformData" [orderformdata]="orderformdata"></app-list>
 <div>
     <h4>Terms and Codnitions of transfer the data from one component to another component</h4>
     <p>The above forms are created in forms component and transfered the data in to list component this can be done by two examples in above forms</p>
