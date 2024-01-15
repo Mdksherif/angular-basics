@@ -42,20 +42,6 @@
   </ng-template>
 </div>
 
-<!-- <div>
-  <h3>List of Orders Form </h3>
-  <div *ngIf="orderformdata; then orderformdata; else noorderformdata"></div>
-  <ng-template #orderformdata>
-    <p>Received Form Data:</p>
-    <ul>
-      <li *ngFor="let orders of orderformdata">{{orderformdata.orderid }}</li>
-    </ul>
-  </ng-template>
-  <ng-template #noorderformdata>
-    <p>No Data Available</p>
-  </ng-template>
-</div> -->
-<!-- list.component.html -->
 <div>
   <h3>List of Orders Form </h3>
   <div *ngIf="orderformdata.length>0; then orderformdataTemplate else noorderformdata"></div>
