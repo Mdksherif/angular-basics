@@ -24,12 +24,51 @@ export class FormComponent implements OnInit {
 
   // ex 2
   // get full name 
-  fullname=""
+  firstname=""
+  lastname=""
   nameList:string[]=[]
-  getName(){
-    this.nameList.push(this.fullname);
+  getName(form:any){
+    this.nameList.push(this.firstname +' '+ this.lastname);
     console.log("name list =", this.nameList);
-    this.fullname=""
+    form.resetForm();
   }
 
+ // ex 3 
+ // get address form as object type 
+ locality: string = '';
+ pincode: any;
+ state: string = '';
+ AddressformData: any;
+
+submitAddressForm(form:any){
+  this.AddressformData = {
+    locality: this.locality,
+    pincode: this.pincode,
+    state: this.state
+  }
+  console.log("formData",this.AddressformData)
+ 
+  form.resetForm();
+
 }
+
+
+orderid : string=""
+productname : string=""
+quantity: number= 1
+orderformdata:any[] = [];
+orderData: any
+
+submitOrderForm(form: any){
+  this.orderData = {
+    orderid: this.orderid,
+    productname: this.productname,
+    quantity: this.quantity
+  }
+  this.orderformdata.push(this.orderData)
+  console.log("order list ", this.orderformdata);
+  form.resetForm();
+}
+
+}
+

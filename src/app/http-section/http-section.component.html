@@ -116,7 +116,7 @@
         <h3>User Todos</h3>
         <ul>
         <li *ngFor="let todo of UidStatusData">
-          {{ todo.title }} ( id :{{ todo.id }})
+          {{ todo.title }} ( id :{{ todo.id }}, Selected User Id: {{todo.userId}}, Selected User Status : {{todo.completed}}   )
         </li>
         </ul>
     </div>

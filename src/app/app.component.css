@@ -1,3 +1,23 @@
-h4 {
-    color: blue;
-}
+
+ /* styles.css or your component's style file */
+ .navbar {
+    display: flex;
+    background-color: #007bff;
+    padding: 5px;
+ 
+  }
+  
+  .nav-item {
+    padding: 10px;
+    margin-right: 20px;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 10px;
+  }
+  
+  .nav-item:hover {
+    color: #0766AD;
+    background-color: #87C4FF;
+ 
+  }

@@ -14,5 +14,6 @@ export class ListComponent implements OnInit {
 // using of input decorater to transfer the data from parent to child (form to list)
  @Input('inputcars') cars:string[] = [];
  @Input('inputList') nameList:string[]=[];
-
+ @Input() AddressformData:any={};
+ @Input() orderformdata: any;
 }

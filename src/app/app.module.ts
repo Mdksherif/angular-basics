@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BasicsComponent } from './basics/basics.component';
@@ -15,9 +14,13 @@ import { TemplateDrivenFormsTestComponent } from './template-driven-forms-test/t
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 import { ReactiveFormsTestComponent } from './reactive-forms-test/reactive-forms-test.component';
 import { HttpSectionComponent } from './http-section/http-section.component';
-import{ HttpClientModule } from '@angular/common/http';
-import { HttpTestComponent } from './http-test/http-test.component'
-
+import { HttpClientModule } from '@angular/common/http';
+import { HttpTestComponent } from './http-test/http-test.component';
+import { RoutingComponent } from './routing/routing.component';
+// import router module 
+// create a const and set type as Routes
+// set <router-outlet></router-outlet> on app component.html
+// set app component html 
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,16 +35,15 @@ import { HttpTestComponent } from './http-test/http-test.component'
     ReactiveFormsComponent,
     ReactiveFormsTestComponent,
     HttpSectionComponent,
-    HttpTestComponent
+    HttpTestComponent,
+    RoutingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    
-    
+    HttpClientModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]
