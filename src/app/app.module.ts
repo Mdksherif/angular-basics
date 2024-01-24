@@ -16,10 +16,16 @@ import { ReactiveFormsTestComponent } from './reactive-forms-test/reactive-forms
 import { HttpSectionComponent } from './http-section/http-section.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpTestComponent } from './http-test/http-test.component';
-// import router module 
-// create a const and set type as Routes
-// set <router-outlet></router-outlet> on app component.html
-// set app component html 
+import { PaginationsComponent } from './paginations/paginations.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+// mat table configuration import 
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,14 +40,21 @@ import { HttpTestComponent } from './http-test/http-test.component';
     ReactiveFormsComponent,
     ReactiveFormsTestComponent,
     HttpSectionComponent,
-    HttpTestComponent
+    HttpTestComponent,
+    PaginationsComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule, 
+    HttpClientModule,
+    BrowserAnimationsModule, 
+    // mat config imports 
+    MatTableModule,
+    MatPaginatorModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

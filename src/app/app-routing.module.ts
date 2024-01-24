@@ -8,6 +8,7 @@ import { HttpSectionComponent } from './http-section/http-section.component';
 import { HttpTestComponent } from './http-test/http-test.component';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 import { TemplateDrivenFormsComponent } from './template-driven-forms/template-driven-forms.component';
+import { PaginationsComponent } from './paginations/paginations.component';
 
 const appRoutes: Routes = [
   { path:'', component:BasicsComponent },
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
   { path:'httptest', component:HttpTestComponent },
   { path:'reactiveForms', component: ReactiveFormsComponent},
   { path:'templateForms', component: TemplateDrivenFormsComponent},
+  { path:'paginations', component: PaginationsComponent},
 ]
 
 @NgModule({
