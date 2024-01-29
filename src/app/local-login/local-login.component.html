@@ -16,15 +16,13 @@
         <form>
           <label for="chk" aria-hidden="true">Login</label>
           <input type="email" name="email" placeholder="Email" [(ngModel)]="loginObj.email">
-          <div class="password-container">
-            <input type="{{ showPassword ? 'text' : 'password' }}" name="pswd" placeholder="Password" [(ngModel)]="loginObj.password">
-            <!-- Clickable icon for password visibility toggle -->
-            <i class="password-toggle-icon" (click)="togglePasswordVisibility()"></i>
-          </div>
-          <button type="button" (click)="onLogin()">Login</button>
+          <input type="{{ showPassword ? 'text' : 'password' }}" name="pswd" placeholder="Password" [(ngModel)]="loginObj.password">
+          <button type="button" (click)="togglePasswordVisibility()">
+            {{ showPassword ? 'Hide' : 'Show' }} Password
+          </button>
+          <button (click)="onLogin()">Login</button>
         </form>
       </div>
-      
     </div>
   </body>
   

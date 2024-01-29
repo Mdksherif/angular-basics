@@ -100,23 +100,3 @@ button:hover {
 	transform: scale(.6);
 }
 
-/* css for forgotpassword */
-.password-container {
-	position: relative;
-}
-
-.password-toggle-icon {
-	position: absolute;
-	right: 10px;
-	/* Adjust the position as needed */
-	top: 50%;
-	transform: translateY(-50%);
-	width: 20px;
-	/* Set the width of your icon */
-	height: 20px;
-	/* Set the height of your icon */
-	/* background: url('path/to/your/icon.png') no-repeat; */
-	background-size: cover;
-	/* Ensure the icon covers the specified width and height */
-	cursor: pointer;
-}
