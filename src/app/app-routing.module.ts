@@ -9,6 +9,7 @@ import { HttpTestComponent } from './http-test/http-test.component';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 import { TemplateDrivenFormsComponent } from './template-driven-forms/template-driven-forms.component';
 import { PaginationsComponent } from './paginations/paginations.component';
+import { LocalLoginComponent } from './local-login/local-login.component';
 
 const appRoutes: Routes = [
   { path:'', component:BasicsComponent },
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
   { path:'reactiveForms', component: ReactiveFormsComponent},
   { path:'templateForms', component: TemplateDrivenFormsComponent},
   { path:'paginations', component: PaginationsComponent},
+  { path:'LocalLogin', component:LocalLoginComponent}
 ]
 
 @NgModule({

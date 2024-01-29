@@ -24,6 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
+import { LocalLoginComponent } from './local-login/local-login.component';
+
 
 
 @NgModule({
@@ -42,6 +44,7 @@ import { MatIconModule } from '@angular/material/icon';
     HttpSectionComponent,
     HttpTestComponent,
     PaginationsComponent,
+    LocalLoginComponent,
     
   ],
   imports: [
@@ -55,6 +58,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
