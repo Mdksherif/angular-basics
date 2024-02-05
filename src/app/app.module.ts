@@ -45,8 +45,8 @@ import { LocalLoginComponent } from './local-login/local-login.component';
     HttpTestComponent,
     PaginationsComponent,
     LocalLoginComponent,
-    
-  ],
+   
+      ],
   imports: [
     BrowserModule,
     AppRoutingModule,
